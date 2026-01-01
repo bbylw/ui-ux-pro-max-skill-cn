@@ -3,7 +3,7 @@
 一款为跨平台和框架构建专业 UI/UX 提供设计智能的 AI 技能。
 
 <p align="center">
-  <img src="screenshots/website.png" alt="UI UX Pro Max" width="800">
+  <img src="https://github.com/nextlevelbuilder/ui-ux-pro-max-skill/raw/main/screenshots/website.png" alt="UI UX Pro Max" width="800">
 </p>
 
 ## 概述
@@ -141,3 +141,4 @@ Make a mobile app UI for e-commerce
 
 ## 许可证
 该项目根据 [MIT 许可证](LICENSE) 获得许可。
+
