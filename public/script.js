@@ -11,21 +11,49 @@ document.querySelectorAll('.install-tab').forEach(tab => {
     });
 });
 
-// Copy to clipboard functionality
+// Copy to clipboard with fallback for non-secure contexts
+function copyText(text) {
+    if (navigator.clipboard && window.isSecureContext) {
+        return navigator.clipboard.writeText(text);
+    }
+    return new Promise((resolve, reject) => {
+        const ta = document.createElement('textarea');
+        ta.value = text;
+        ta.style.position = 'fixed';
+        ta.style.opacity = '0';
+        document.body.appendChild(ta);
+        ta.select();
+        try {
+            document.execCommand('copy') ? resolve() : reject(new Error('copy failed'));
+        } catch (err) {
+            reject(err);
+        } finally {
+            ta.remove();
+        }
+    });
+}
+
 document.querySelectorAll('.copy-btn').forEach(button => {
     button.addEventListener('click', () => {
         const codeId = button.dataset.code;
         const codeElement = document.getElementById(codeId);
-        const code = codeElement.innerText;
+        if (!codeElement) return;
+        const icon = button.querySelector('i');
+        const text = button.querySelector('span');
 
-        navigator.clipboard.writeText(code).then(() => {
-            const icon = button.querySelector('i');
-            const text = button.querySelector('span');
-
+        copyText(codeElement.innerText).then(() => {
             icon.className = 'fas fa-check';
             text.textContent = '已复制！';
             button.style.color = '#10b981';
-
+            setTimeout(() => {
+                icon.className = 'fas fa-copy';
+                text.textContent = '复制';
+                button.style.color = '';
+            }, 2000);
+        }).catch(() => {
+            icon.className = 'fas fa-triangle-exclamation';
+            text.textContent = '复制失败';
+            button.style.color = '#ef4444';
             setTimeout(() => {
                 icon.className = 'fas fa-copy';
                 text.textContent = '复制';
@@ -48,6 +76,56 @@ document.querySelectorAll('a[href^="#"]').forEach(anchor => {
         }
     });
 });
+
+// Mobile navigation toggle
+const navToggle = document.querySelector('.nav-toggle');
+const navMenu = document.getElementById('nav-menu');
+if (navToggle && navMenu) {
+    const closeMenu = () => {
+        navMenu.classList.remove('open');
+        navToggle.setAttribute('aria-expanded', 'false');
+        navToggle.setAttribute('aria-label', '打开导航菜单');
+        navToggle.querySelector('i').className = 'fas fa-bars';
+    };
+    navToggle.addEventListener('click', () => {
+        const open = navMenu.classList.toggle('open');
+        navToggle.setAttribute('aria-expanded', String(open));
+        navToggle.setAttribute('aria-label', open ? '关闭导航菜单' : '打开导航菜单');
+        navToggle.querySelector('i').className = open ? 'fas fa-xmark' : 'fas fa-bars';
+    });
+    navMenu.querySelectorAll('a').forEach(link => {
+        link.addEventListener('click', closeMenu);
+    });
+}
+
+// Scrollspy: highlight the nav link of the section in view
+const spyLinks = Array.from(document.querySelectorAll('.nav-links a[href^="#"]'));
+const spyTargets = spyLinks
+    .map(link => document.querySelector(link.getAttribute('href')))
+    .filter(Boolean);
+if ('IntersectionObserver' in window && spyTargets.length) {
+    const spy = new IntersectionObserver(entries => {
+        entries.forEach(entry => {
+            if (entry.isIntersecting) {
+                spyLinks.forEach(link => {
+                    link.classList.toggle('active', link.getAttribute('href') === `#${entry.target.id}`);
+                });
+            }
+        });
+    }, { rootMargin: '-40% 0px -55% 0px' });
+    spyTargets.forEach(t => spy.observe(t));
+}
+
+// Back to top button
+const backToTop = document.getElementById('back-to-top');
+if (backToTop) {
+    window.addEventListener('scroll', () => {
+        backToTop.classList.toggle('visible', window.scrollY > 600);
+    }, { passive: true });
+    backToTop.addEventListener('click', () => {
+        window.scrollTo({ top: 0, behavior: 'smooth' });
+    });
+}
 
 // Navbar scroll effect
 const navbar = document.getElementById('navbar');

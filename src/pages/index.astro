@@ -6,6 +6,26 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>UI/UX Pro Max | AI 全能设计技能教程</title>
     <link rel="icon" type="image/svg+xml" href="/favicon.svg">
+    <meta name="theme-color" content="#020617">
+    <link rel="canonical" href="https://ui.cod.ndjp.net/">
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://ui.cod.ndjp.net/">
+    <meta property="og:site_name" content="UI/UX Pro Max 中文教程">
+    <meta property="og:locale" content="zh_CN">
+    <meta property="og:title" content="UI/UX Pro Max | AI 全能设计技能教程">
+    <meta property="og:description"
+        content="UI/UX Pro Max 官方中文教程（已同步上游 v2.15.0）：79 种可检索 UI 风格、192 套行业配色、74 种字体配对、22 个技术栈、119 条 UX 准则与 192 条行业推理规则，支持 20+ AI 编码助手。">
+    <meta property="og:image"
+        content="https://github.com/nextlevelbuilder/ui-ux-pro-max-skill/raw/main/screenshots/website.png">
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="UI/UX Pro Max | AI 全能设计技能教程">
+    <meta name="twitter:description"
+        content="79 种可检索 UI 风格、192 套行业配色、22 个技术栈与 192 条行业推理规则，为 20+ AI 编码助手提供专业级设计智能。">
+    <meta name="twitter:image"
+        content="https://github.com/nextlevelbuilder/ui-ux-pro-max-skill/raw/main/screenshots/website.png">
+    <link rel="preconnect" href="https://cdnjs.cloudflare.com" crossorigin>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <meta name="description"
         content="UI/UX Pro Max 官方中文教程（已同步上游 v2.15.0）：为 Claude Code, Cursor, Windsurf, Antigravity, Kiro, Codex CLI 等 20+ AI 编码助手提供专业级设计智能。包含 79 种可检索 UI 风格、192 套行业配色方案、74 种字体配对、25 种图表类型、22 个技术栈、119 条 UX 准则和 192 条行业推理规则。">
     <meta name="keywords" content="UI UX, AI Design, Claude Code, Cursor, Windsurf, Antigravity, 设计系统, 配色方案">
@@ -14,6 +34,7 @@
 </head>
 
 <body>
+    <a class="skip-link" href="#main">跳到主要内容</a>
     <!-- Background Effects -->
     <div class="bg-effects">
         <div class="blob blob-1"></div>
@@ -29,7 +50,7 @@
                 <div class="logo-icon">🎨</div>
                 <span class="logo-text">UI/UX Pro Max</span>
             </a>
-            <ul class="nav-links">
+            <ul class="nav-links" id="nav-menu">
                 <li><a href="#whats-new">v2.15</a></li>
                 <li><a href="#features">特性</a></li>
                 <li><a href="#install">安装</a></li>
@@ -37,19 +58,23 @@
                 <li><a href="#workflow">原理</a></li>
                 <li><a href="#stacks">技术栈</a></li>
             </ul>
+            <button class="nav-toggle" aria-label="打开导航菜单" aria-expanded="false" aria-controls="nav-menu">
+                <i class="fas fa-bars" aria-hidden="true"></i>
+            </button>
             <div class="nav-cta">
                 <a href="https://github.com/nextlevelbuilder/ui-ux-pro-max-skill" target="_blank" class="github-btn">
-                    <i class="fab fa-github"></i>
+                    <i class="fab fa-github" aria-hidden="true"></i>
                     <span>GitHub</span>
                 </a>
             </div>
         </div>
     </nav>
 
+    <main id="main">
     <!-- Hero Section -->
-    <header class="hero">
+    <section class="hero">
         <div class="hero-badge">
-            <i class="fas fa-wand-magic-sparkles"></i>
+            <i class="fas fa-wand-magic-sparkles" aria-hidden="true"></i>
             <span>已同步上游 v2.15.0：79 种可检索 UI 风格 + 192 套行业配色</span>
         </div>
         <h1 class="hero-title">
@@ -62,16 +87,16 @@
         </p>
         <div class="hero-cta">
             <a href="#install" class="btn btn-primary">
-                <i class="fas fa-rocket"></i>
+                <i class="fas fa-rocket" aria-hidden="true"></i>
                 <span>立即开始</span>
             </a>
             <a href="https://github.com/nextlevelbuilder/ui-ux-pro-max-skill" target="_blank" class="btn btn-secondary">
-                <i class="fab fa-github"></i>
+                <i class="fab fa-github" aria-hidden="true"></i>
                 <span>查看 GitHub</span>
             </a>
         </div>
 
-    </header>
+    </section>
 
     <!-- Stats Bar -->
     <div class="stats-bar">
@@ -130,32 +155,32 @@
             <h3 style="text-align: center; margin-bottom: 1.5rem;">🆕 v2.0 → v2.15 其他亮点</h3>
             <div class="features-grid">
                 <div class="feature-card">
-                    <div class="feature-icon"><i class="fas fa-font"></i></div>
+                    <div class="feature-icon"><i class="fas fa-font" aria-hidden="true"></i></div>
                     <h3>1900+ 可检索字体库</h3>
                     <p>新增 Google Fonts 全量数据库（1934 款字体），支持按名称与授权方式检索，与 74 组精选配对互补。</p>
                 </div>
                 <div class="feature-card">
-                    <div class="feature-icon"><i class="fas fa-icons"></i></div>
+                    <div class="feature-icon"><i class="fas fa-icons" aria-hidden="true"></i></div>
                     <h3>105 个图标 + 17 组动效预设</h3>
                     <p>精选 Phosphor 图标检索域与 17 个 GSAP 动效预设，可通过 <code>--domain icons</code> / <code>--domain motion</code> 查询。</p>
                 </div>
                 <div class="feature-card">
-                    <div class="feature-icon"><i class="fas fa-cubes"></i></div>
+                    <div class="feature-icon"><i class="fas fa-cubes" aria-hidden="true"></i></div>
                     <h3>6 个附加设计技能</h3>
                     <p>brand、design、design-system、ui-styling、banner-design、slides，覆盖品牌、横幅与幻灯片设计。</p>
                 </div>
                 <div class="feature-card">
-                    <div class="feature-icon"><i class="fas fa-text-height"></i></div>
+                    <div class="feature-icon"><i class="fas fa-text-height" aria-hidden="true"></i></div>
                     <h3>韧性文本与紧凑 UI 准则</h3>
                     <p>标题换行、长词折行、Chip/徽章溢出、被中断的微交互等生产环境常见问题的处理指南。</p>
                 </div>
                 <div class="feature-card">
-                    <div class="feature-icon"><i class="fas fa-paint-roller"></i></div>
+                    <div class="feature-icon"><i class="fas fa-paint-roller" aria-hidden="true"></i></div>
                     <h3>为现有应用换肤</h3>
                     <p>新增 Retheme 工作流与迁移检查清单：复用现有语义 Token，逐组件替换硬编码样式，不重建主题体系。</p>
                 </div>
                 <div class="feature-card">
-                    <div class="feature-icon"><i class="fas fa-code-branch"></i></div>
+                    <div class="feature-icon"><i class="fas fa-code-branch" aria-hidden="true"></i></div>
                     <h3>版本感知框架搜索</h3>
                     <p>React 19、Nuxt UI v4.12 等最新栈指南；显式查询旧版本（如 Svelte 4、Next.js 15）只返回策展的遗留指南。</p>
                 </div>
@@ -174,42 +199,42 @@
         </div>
         <div class="features-grid">
             <div class="feature-card">
-                <div class="feature-icon"><i class="fas fa-palette"></i></div>
+                <div class="feature-icon"><i class="fas fa-palette" aria-hidden="true"></i></div>
                 <h3>79 种可检索 UI 风格</h3>
                 <p>50 个常用风格持续推荐，涵盖玻璃拟态、粘土拟态、极简主义、野兽派、Bento Grid、AI-Native UI，以及 Fluent 2、Shopify Polaris、Adobe Spectrum 等官方设计系统。</p>
             </div>
             <div class="feature-card">
-                <div class="feature-icon"><i class="fas fa-swatchbook"></i></div>
+                <div class="feature-icon"><i class="fas fa-swatchbook" aria-hidden="true"></i></div>
                 <h3>192 套配色方案</h3>
                 <p>与 192 种产品类型一一对齐的行业专属配色：SaaS、金融科技、医疗健康、电商、服务业、创意和新兴科技。</p>
             </div>
             <div class="feature-card">
-                <div class="feature-icon"><i class="fas fa-font"></i></div>
+                <div class="feature-icon"><i class="fas fa-font" aria-hidden="true"></i></div>
                 <h3>74 种字体配对</h3>
                 <p>精心策划的 Google Fonts 排版组合，自动处理字体导入和排版层次结构，并可检索 1900+ 款字体全量库。</p>
             </div>
             <div class="feature-card">
-                <div class="feature-icon"><i class="fas fa-chart-pie"></i></div>
+                <div class="feature-icon"><i class="fas fa-chart-pie" aria-hidden="true"></i></div>
                 <h3>25 种图表类型</h3>
                 <p>为仪表盘和数据分析场景提供最科学的可视化建议，让数据呈现更专业。</p>
             </div>
             <div class="feature-card">
-                <div class="feature-icon"><i class="fas fa-layer-group"></i></div>
+                <div class="feature-icon"><i class="fas fa-layer-group" aria-hidden="true"></i></div>
                 <h3>22 个技术栈</h3>
                 <p>React、Next.js、Nuxt UI、Svelte、shadcn/ui、Angular、Laravel、Three.js、SwiftUI、Jetpack Compose、Flutter，以及 WPF、WinUI 3、Avalonia 等桌面框架专属指南。</p>
             </div>
             <div class="feature-card">
-                <div class="feature-icon"><i class="fas fa-list-check"></i></div>
+                <div class="feature-icon"><i class="fas fa-list-check" aria-hidden="true"></i></div>
                 <h3>119 条 UX 准则</h3>
                 <p>最佳实践、反模式与无障碍规则，新增韧性文本布局、紧凑标签溢出和可取消交互等生产级准则。</p>
             </div>
             <div class="feature-card">
-                <div class="feature-icon"><i class="fas fa-brain"></i></div>
+                <div class="feature-icon"><i class="fas fa-brain" aria-hidden="true"></i></div>
                 <h3>192 条行业推理规则</h3>
                 <p>为科技、金融、医疗、电商、服务、创意、生活方式和新兴科技提供产品类型专属设计决策。</p>
             </div>
             <div class="feature-card">
-                <div class="feature-icon"><i class="fas fa-shapes"></i></div>
+                <div class="feature-icon"><i class="fas fa-shapes" aria-hidden="true"></i></div>
                 <h3>105 个图标 + 17 组动效</h3>
                 <p>精选 Phosphor 图标库与 GSAP 动效预设独立成域，让图标语义和动效节奏都有据可依。</p>
             </div>
@@ -241,8 +266,8 @@
                             <span class="code-dot yellow"></span>
                             <span class="code-dot green"></span>
                         </div>
-                        <button class="copy-btn" data-code="cli-main">
-                            <i class="fas fa-copy"></i>
+                        <button class="copy-btn" data-code="cli-main" aria-label="复制代码">
+                            <i class="fas fa-copy" aria-hidden="true"></i>
                             <span>复制</span>
                         </button>
                     </div>
@@ -292,8 +317,8 @@
                             <span class="code-dot yellow"></span>
                             <span class="code-dot green"></span>
                         </div>
-                        <button class="copy-btn" data-code="cli-global">
-                            <i class="fas fa-copy"></i>
+                        <button class="copy-btn" data-code="cli-global" aria-label="复制代码">
+                            <i class="fas fa-copy" aria-hidden="true"></i>
                             <span>复制</span>
                         </button>
                     </div>
@@ -315,8 +340,8 @@
                             <span class="code-dot yellow"></span>
                             <span class="code-dot green"></span>
                         </div>
-                        <button class="copy-btn" data-code="cli-other">
-                            <i class="fas fa-copy"></i>
+                        <button class="copy-btn" data-code="cli-other" aria-label="复制代码">
+                            <i class="fas fa-copy" aria-hidden="true"></i>
                             <span>复制</span>
                         </button>
                     </div>
@@ -337,7 +362,7 @@
             <div class="install-content" id="marketplace">
                 <p style="color: var(--text-muted); margin-bottom: 1.5rem;">Claude Code 可直接通过 Marketplace 安装：</p>
                 <div class="code-block">
-                    <div class="code-header"><div class="code-dots"><span class="code-dot red"></span><span class="code-dot yellow"></span><span class="code-dot green"></span></div><button class="copy-btn" data-code="marketplace-code"><i class="fas fa-copy"></i><span>复制</span></button></div>
+                    <div class="code-header"><div class="code-dots"><span class="code-dot red"></span><span class="code-dot yellow"></span><span class="code-dot green"></span></div><button class="copy-btn" data-code="marketplace-code" aria-label="复制代码"><i class="fas fa-copy" aria-hidden="true"></i><span>复制</span></button></div>
                     <div class="code-body"><pre id="marketplace-code"><span class="command">/plugin marketplace add</span> <span class="value">nextlevelbuilder/ui-ux-pro-max-skill</span>
 <span class="command">/plugin install</span> <span class="value">ui-ux-pro-max@ui-ux-pro-max-skill</span></pre></div>
                 </div>
@@ -387,7 +412,7 @@
             <!-- Prerequisites -->
             <div class="install-content" id="prereq">
                 <div class="prereq-box">
-                    <h4><i class="fas fa-exclamation-triangle"></i> 前置条件</h4>
+                    <h4><i class="fas fa-exclamation-triangle" aria-hidden="true"></i> 前置条件</h4>
                     <p style="color: var(--text-muted);">搜索脚本需要 Python 3.x 环境支持。</p>
                 </div>
                 <div class="code-block" style="margin-top: 1.5rem;">
@@ -397,8 +422,8 @@
                             <span class="code-dot yellow"></span>
                             <span class="code-dot green"></span>
                         </div>
-                        <button class="copy-btn" data-code="prereq-code">
-                            <i class="fas fa-copy"></i>
+                        <button class="copy-btn" data-code="prereq-code" aria-label="复制代码">
+                            <i class="fas fa-copy" aria-hidden="true"></i>
                             <span>复制</span>
                         </button>
                     </div>
@@ -431,7 +456,7 @@
         <div class="ai-grid">
             <div class="ai-card">
                 <div class="ai-card-header">
-                    <div class="ai-card-icon"><i class="fas fa-robot"></i></div>
+                    <div class="ai-card-icon"><i class="fas fa-robot" aria-hidden="true"></i></div>
                     <h4>Claude Code</h4>
                 </div>
                 <p>技能会自动激活。像平时一样自然对话即可：</p>
@@ -440,7 +465,7 @@
 
             <div class="ai-card">
                 <div class="ai-card-header">
-                    <div class="ai-card-icon"><i class="fas fa-terminal"></i></div>
+                    <div class="ai-card-icon"><i class="fas fa-terminal" aria-hidden="true"></i></div>
                     <h4>自动激活平台</h4>
                 </div>
                 <p>Claude Code、Cursor、Windsurf、Antigravity、Codex CLI、Continue、Gemini CLI、OpenCode、Qoder、CodeBuddy、Droid、KiloCode、Warp、Augment、CodeWhale、ZCode、Kimi Code、Amazon Q、OpenClaw、GitHub Copilot 会在 UI/UX 请求中自动激活：</p>
@@ -449,7 +474,7 @@
 
             <div class="ai-card">
                 <div class="ai-card-header">
-                    <div class="ai-card-icon"><i class="fas fa-compass"></i></div>
+                    <div class="ai-card-icon"><i class="fas fa-compass" aria-hidden="true"></i></div>
                     <h4>斜杠命令平台</h4>
                 </div>
                 <p>Kiro、Roo Code、KiloCode 可用斜杠命令显式调用：</p>
@@ -458,7 +483,7 @@
 
             <div class="ai-card">
                 <div class="ai-card-header">
-                    <div class="ai-card-icon"><i class="fab fa-github"></i></div>
+                    <div class="ai-card-icon"><i class="fab fa-github" aria-hidden="true"></i></div>
                     <h4>Trae SOLO 模式</h4>
                 </div>
                 <p>Trae 用户请先切换到 <code>SOLO</code> 模式，再用自然语言提出 UI/UX 需求。</p>
@@ -471,19 +496,19 @@
             <h3 style="text-align: center; margin-bottom: 1.5rem;">💡 示例提示词</h3>
             <div class="prompts-grid">
                 <div class="prompt-item">
-                    <span class="prompt-icon"><i class="fas fa-globe"></i></span>
+                    <span class="prompt-icon"><i class="fas fa-globe" aria-hidden="true"></i></span>
                     <p>为我的 SaaS 产品构建一个着陆页</p>
                 </div>
                 <div class="prompt-item">
-                    <span class="prompt-icon"><i class="fas fa-chart-line"></i></span>
+                    <span class="prompt-icon"><i class="fas fa-chart-line" aria-hidden="true"></i></span>
                     <p>创建一个医疗分析仪表盘</p>
                 </div>
                 <div class="prompt-item">
-                    <span class="prompt-icon"><i class="fas fa-moon"></i></span>
+                    <span class="prompt-icon"><i class="fas fa-moon" aria-hidden="true"></i></span>
                     <p>设计一个具有深色模式的个人作品集网站</p>
                 </div>
                 <div class="prompt-item">
-                    <span class="prompt-icon"><i class="fas fa-mobile-alt"></i></span>
+                    <span class="prompt-icon"><i class="fas fa-mobile-alt" aria-hidden="true"></i></span>
                     <p>为电商应用制作一个移动端 UI</p>
                 </div>
             </div>
@@ -535,79 +560,79 @@
         </div>
         <div class="stack-grid">
             <div class="stack-item">
-                <i class="fab fa-html5"></i>
+                <i class="fab fa-html5" aria-hidden="true"></i>
                 <span>HTML + Tailwind</span>
             </div>
             <div class="stack-item">
-                <i class="fab fa-react"></i>
+                <i class="fab fa-react" aria-hidden="true"></i>
                 <span>React</span>
             </div>
             <div class="stack-item">
-                <i class="fas fa-n"></i>
+                <i class="fas fa-n" aria-hidden="true"></i>
                 <span>Next.js</span>
             </div>
             <div class="stack-item">
-                <i class="fas fa-shapes"></i>
+                <i class="fas fa-shapes" aria-hidden="true"></i>
                 <span>shadcn/ui</span>
             </div>
             <div class="stack-item">
-                <i class="fab fa-vuejs"></i>
+                <i class="fab fa-vuejs" aria-hidden="true"></i>
                 <span>Vue</span>
             </div>
             <div class="stack-item">
-                <i class="fas fa-mountain"></i>
+                <i class="fas fa-mountain" aria-hidden="true"></i>
                 <span>Nuxt.js / Nuxt UI</span>
             </div>
             <div class="stack-item">
-                <i class="fas fa-fire"></i>
+                <i class="fas fa-fire" aria-hidden="true"></i>
                 <span>Svelte</span>
             </div>
             <div class="stack-item">
-                <i class="fas fa-rocket"></i>
+                <i class="fas fa-rocket" aria-hidden="true"></i>
                 <span>Astro</span>
             </div>
             <div class="stack-item">
-                <i class="fas fa-cube"></i>
+                <i class="fas fa-cube" aria-hidden="true"></i>
                 <span>Three.js</span>
             </div>
             <div class="stack-item">
-                <i class="fab fa-angular"></i>
+                <i class="fab fa-angular" aria-hidden="true"></i>
                 <span>Angular</span>
             </div>
             <div class="stack-item">
-                <i class="fab fa-laravel"></i>
+                <i class="fab fa-laravel" aria-hidden="true"></i>
                 <span>Laravel</span>
             </div>
             <div class="stack-item">
-                <i class="fab fa-swift"></i>
+                <i class="fab fa-swift" aria-hidden="true"></i>
                 <span>SwiftUI</span>
             </div>
             <div class="stack-item">
-                <i class="fab fa-android"></i>
+                <i class="fab fa-android" aria-hidden="true"></i>
                 <span>Jetpack Compose</span>
             </div>
             <div class="stack-item">
-                <i class="fab fa-react"></i>
+                <i class="fab fa-react" aria-hidden="true"></i>
                 <span>React Native</span>
             </div>
             <div class="stack-item">
-                <i class="fas fa-feather"></i>
+                <i class="fas fa-feather" aria-hidden="true"></i>
                 <span>Flutter</span>
             </div>
             <div class="stack-item">
-                <i class="fab fa-java"></i>
+                <i class="fab fa-java" aria-hidden="true"></i>
                 <span>JavaFX</span>
             </div>
             <div class="stack-item">
-                <i class="fab fa-windows"></i>
+                <i class="fab fa-windows" aria-hidden="true"></i>
                 <span>WPF / WinUI 3 / UWP</span>
             </div>
             <div class="stack-item">
-                <i class="fas fa-desktop"></i>
+                <i class="fas fa-desktop" aria-hidden="true"></i>
                 <span>Avalonia</span>
             </div>
             <div class="stack-item">
-                <i class="fas fa-clone"></i>
+                <i class="fas fa-clone" aria-hidden="true"></i>
                 <span>Uno Platform</span>
             </div>
         </div>
@@ -616,6 +641,8 @@
         </p>
     </section>
 
+    </main>
+
     <!-- Footer -->
     <footer>
         <div class="footer-content">
@@ -623,7 +650,7 @@
             <p style="color: var(--text-muted); margin-bottom: 1rem;">为 AI 时代打造的卓越设计技能库</p>
             <div class="footer-links">
                 <a href="https://github.com/nextlevelbuilder/ui-ux-pro-max-skill" target="_blank">
-                    <i class="fab fa-github"></i> GitHub
+                    <i class="fab fa-github" aria-hidden="true"></i> GitHub
                 </a>
                 <a href="https://github.com/nextlevelbuilder/ui-ux-pro-max-skill/blob/main/README.zh.md" target="_blank">
                     上游中文文档
@@ -635,6 +662,10 @@
             <p class="footer-copy">© 2026 UI/UX Pro Max. 基于 MIT 协议开源。</p>
         </div>
     </footer>
+
+    <button id="back-to-top" aria-label="回到顶部">
+        <i class="fas fa-arrow-up" aria-hidden="true"></i>
+    </button>
 
     <script is:inline src="/script.js"></script>
 </body>
