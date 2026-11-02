@@ -1,3 +1,6 @@
+---
+import '../styles/global.css';
+---
 <!DOCTYPE html>
 <html lang="zh-CN">
 
@@ -26,10 +29,11 @@
     <link rel="preconnect" href="https://cdnjs.cloudflare.com" crossorigin>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link rel="stylesheet"
+        href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&amp;family=JetBrains+Mono:wght@400;500&amp;display=swap">
     <meta name="description"
         content="UI/UX Pro Max 官方中文教程（已同步上游 v2.15.0）：为 Claude Code, Cursor, Windsurf, Antigravity, Kiro, Codex CLI 等 20+ AI 编码助手提供专业级设计智能。包含 79 种可检索 UI 风格、192 套行业配色方案、74 种字体配对、25 种图表类型、22 个技术栈、119 条 UX 准则和 192 条行业推理规则。">
     <meta name="keywords" content="UI UX, AI Design, Claude Code, Cursor, Windsurf, Antigravity, 设计系统, 配色方案">
-    <link rel="stylesheet" href="style.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
 </head>
 
@@ -667,7 +671,9 @@
         <i class="fas fa-arrow-up" aria-hidden="true"></i>
     </button>
 
-    <script is:inline src="/script.js"></script>
+    <script>
+        import '../scripts/main.js';
+    </script>
 </body>
 
 </html>
