@@ -1,5 +1,6 @@
 :root {
     --primary: #6366f1;
+    --primary-deep: #4f46e5;
     --primary-light: #818cf8;
     --primary-glow: #8b5cf6;
     --secondary: #ec4899;
@@ -26,6 +27,17 @@
     box-sizing: border-box;
 }
 
+[hidden] {
+    display: none !important;
+}
+
+button,
+input,
+select,
+textarea {
+    font: inherit;
+}
+
 html {
     color-scheme: dark;
     scroll-behavior: smooth;
@@ -40,6 +52,10 @@ body {
     color: var(--text-main);
     line-height: 1.7;
     overflow-x: clip;
+}
+
+body.menu-open {
+    overflow: hidden;
 }
 
 /* Animated Background */
@@ -511,8 +527,15 @@ nav.scrolled {
 }
 
 .install-tab.active {
-    background: var(--primary);
+    background: var(--primary-deep);
     color: white;
+}
+
+.install-subheading {
+    margin: 2rem 0 1rem;
+    color: var(--text-main);
+    font-size: 1rem;
+    font-weight: 700;
 }
 
 .install-tab:hover:not(.active) {
@@ -604,6 +627,10 @@ nav.scrolled {
     padding: 1.25rem 1.5rem;
     overflow-x: auto;
     overscroll-behavior-inline: contain;
+}
+
+.code-body:focus-visible {
+    outline-offset: -3px;
 }
 
 .code-body pre {
@@ -720,7 +747,7 @@ nav.scrolled {
     font-size: 1.25rem;
 }
 
-.ai-card h4 {
+.ai-card h3 {
     font-size: 1.1rem;
     font-weight: 700;
 }
@@ -780,7 +807,7 @@ nav.scrolled {
     box-shadow: 0 10px 40px -10px rgba(99, 102, 241, 0.4);
 }
 
-.workflow-step h4 {
+.workflow-step h3 {
     font-size: 1.1rem;
     font-weight: 700;
     margin-bottom: 0.5rem;
@@ -837,8 +864,9 @@ nav.scrolled {
     margin-top: 2rem;
 }
 
-.prereq-box h4 {
+.prereq-box h3 {
     display: flex;
+    font-size: 1rem;
     align-items: center;
     gap: 0.5rem;
     color: var(--warning);
@@ -1107,6 +1135,10 @@ footer {
     top: 0;
 }
 
+#main:focus {
+    outline: none;
+}
+
 /* 当前分区高亮（scrollspy） */
 .nav-links a.active {
     color: var(--text-main);
@@ -1265,6 +1297,18 @@ footer {
     }
 }
 
+/* 滚动进入动画：仅在脚本初始化成功后隐藏内容 */
+.reveal-ready {
+    opacity: 0;
+    transform: translateY(30px);
+    transition: opacity 0.6s cubic-bezier(0.4, 0, 0.2, 1), transform 0.6s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.reveal-ready.animate-in {
+    opacity: 1;
+    transform: translateY(0);
+}
+
 /* 触屏设备不保留悬停位移 */
 @media (hover: none) {
     .github-btn:hover,
@@ -1282,6 +1326,12 @@ footer {
 @media (prefers-reduced-motion: reduce) {
     html {
         scroll-behavior: auto;
+    }
+
+    .reveal-ready {
+        opacity: 1;
+        transform: none;
+        transition: none;
     }
 
     .blob,

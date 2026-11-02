@@ -50,7 +50,7 @@ import '../styles/global.css';
     <!-- Navigation -->
     <nav id="navbar">
         <div class="nav-container">
-            <a href="#" class="logo">
+            <a href="#top" class="logo">
                 <div class="logo-icon">🎨</div>
                 <span class="logo-text">UI/UX Pro Max</span>
             </a>
@@ -66,7 +66,7 @@ import '../styles/global.css';
                 <i class="fas fa-bars" aria-hidden="true"></i>
             </button>
             <div class="nav-cta">
-                <a href="https://github.com/nextlevelbuilder/ui-ux-pro-max-skill" target="_blank" class="github-btn">
+                <a href="https://github.com/nextlevelbuilder/ui-ux-pro-max-skill" target="_blank" rel="noopener noreferrer" class="github-btn">
                     <i class="fab fa-github" aria-hidden="true"></i>
                     <span>GitHub</span>
                 </a>
@@ -74,9 +74,9 @@ import '../styles/global.css';
         </div>
     </nav>
 
-    <main id="main">
+    <main id="main" tabindex="-1">
     <!-- Hero Section -->
-    <section class="hero">
+    <section class="hero" id="top">
         <div class="hero-badge">
             <i class="fas fa-wand-magic-sparkles" aria-hidden="true"></i>
             <span>已同步上游 v2.15.0：79 种可检索 UI 风格 + 192 套行业配色</span>
@@ -94,7 +94,7 @@ import '../styles/global.css';
                 <i class="fas fa-rocket" aria-hidden="true"></i>
                 <span>立即开始</span>
             </a>
-            <a href="https://github.com/nextlevelbuilder/ui-ux-pro-max-skill" target="_blank" class="btn btn-secondary">
+            <a href="https://github.com/nextlevelbuilder/ui-ux-pro-max-skill" target="_blank" rel="noopener noreferrer" class="btn btn-secondary">
                 <i class="fab fa-github" aria-hidden="true"></i>
                 <span>查看 GitHub</span>
             </a>
@@ -254,15 +254,15 @@ import '../styles/global.css';
         </div>
         <div class="install-container">
             <!-- Tabs -->
-            <div class="install-tabs">
-                <button class="install-tab active" data-tab="cli">CLI 安装 (推荐)</button>
-                <button class="install-tab" data-tab="marketplace">Claude Marketplace</button>
-                <button class="install-tab" data-tab="manual">手动安装</button>
-                <button class="install-tab" data-tab="prereq">前置条件</button>
+            <div class="install-tabs" role="tablist" aria-label="安装方式">
+                <button class="install-tab active" id="tab-cli" type="button" role="tab" aria-selected="true" aria-controls="cli" tabindex="0" data-tab="cli">CLI 安装 (推荐)</button>
+                <button class="install-tab" id="tab-marketplace" type="button" role="tab" aria-selected="false" aria-controls="marketplace" tabindex="-1" data-tab="marketplace">Claude Marketplace</button>
+                <button class="install-tab" id="tab-manual" type="button" role="tab" aria-selected="false" aria-controls="manual" tabindex="-1" data-tab="manual">手动安装</button>
+                <button class="install-tab" id="tab-prereq" type="button" role="tab" aria-selected="false" aria-controls="prereq" tabindex="-1" data-tab="prereq">前置条件</button>
             </div>
 
             <!-- CLI Installation -->
-            <div class="install-content active" id="cli">
+            <div class="install-content active" id="cli" role="tabpanel" aria-labelledby="tab-cli">
                 <div class="code-block">
                     <div class="code-header">
                         <div class="code-dots">
@@ -275,7 +275,7 @@ import '../styles/global.css';
                             <span>复制</span>
                         </button>
                     </div>
-                    <div class="code-body">
+                    <div class="code-body" tabindex="0" role="region" aria-label="CLI 安装命令">
                         <pre
                             id="cli-main"><span class="comment"># 全局安装 CLI 工具</span>
 <span class="command">npm install</span> <span class="flag">-g</span> <span class="value">ui-ux-pro-max-cli</span>
@@ -313,7 +313,7 @@ import '../styles/global.css';
                     </div>
                 </div>
 
-                <h4 style="margin: 2rem 0 1rem; color: var(--text-main);">全局安装（所有项目可用）</h4>
+                <h3 class="install-subheading">全局安装（所有项目可用）</h3>
                 <div class="code-block">
                     <div class="code-header">
                         <div class="code-dots">
@@ -326,7 +326,7 @@ import '../styles/global.css';
                             <span>复制</span>
                         </button>
                     </div>
-                    <div class="code-body">
+                    <div class="code-body" tabindex="0" role="region" aria-label="全局安装命令">
                         <pre
                             id="cli-global"><span class="command">uipro init</span> <span class="flag">--ai</span> <span class="value">claude</span> <span class="flag">--global</span>      <span class="comment"># 安装到 ~/.claude/skills/</span>
 <span class="command">uipro init</span> <span class="flag">--ai</span> <span class="value">cursor</span> <span class="flag">--global</span>      <span class="comment"># 安装到 ~/.cursor/skills/</span>
@@ -336,7 +336,7 @@ import '../styles/global.css';
                     </div>
                 </div>
 
-                <h4 style="margin: 2rem 0 1rem; color: var(--text-main);">其他 CLI 命令</h4>
+                <h3 class="install-subheading">其他 CLI 命令</h3>
                 <div class="code-block">
                     <div class="code-header">
                         <div class="code-dots">
@@ -349,7 +349,7 @@ import '../styles/global.css';
                             <span>复制</span>
                         </button>
                     </div>
-                    <div class="code-body">
+                    <div class="code-body" tabindex="0" role="region" aria-label="其他 CLI 命令">
                         <pre
                             id="cli-other"><span class="command">uipro versions</span>              <span class="comment"># 列出可用版本</span>
 <span class="command">uipro update</span>                <span class="comment"># 从已安装 CLI 包刷新技能文件</span>
@@ -363,24 +363,24 @@ import '../styles/global.css';
                 </div>
             </div>
 
-            <div class="install-content" id="marketplace">
+            <div class="install-content" id="marketplace" role="tabpanel" aria-labelledby="tab-marketplace" hidden>
                 <p style="color: var(--text-muted); margin-bottom: 1.5rem;">Claude Code 可直接通过 Marketplace 安装：</p>
                 <div class="code-block">
                     <div class="code-header"><div class="code-dots"><span class="code-dot red"></span><span class="code-dot yellow"></span><span class="code-dot green"></span></div><button class="copy-btn" data-code="marketplace-code" aria-label="复制代码"><i class="fas fa-copy" aria-hidden="true"></i><span>复制</span></button></div>
-                    <div class="code-body"><pre id="marketplace-code"><span class="command">/plugin marketplace add</span> <span class="value">nextlevelbuilder/ui-ux-pro-max-skill</span>
+                    <div class="code-body" tabindex="0" role="region" aria-label="Marketplace 安装命令"><pre id="marketplace-code"><span class="command">/plugin marketplace add</span> <span class="value">nextlevelbuilder/ui-ux-pro-max-skill</span>
 <span class="command">/plugin install</span> <span class="value">ui-ux-pro-max@ui-ux-pro-max-skill</span></pre></div>
                 </div>
             </div>
 
             <!-- Manual Installation -->
-            <div class="install-content" id="manual">
+            <div class="install-content" id="manual" role="tabpanel" aria-labelledby="tab-manual" hidden>
                 <p style="color: var(--text-muted); margin-bottom: 1.5rem;">v2.0 起平台文件由 CLI 模板动态生成；如果你更喜欢手动安装，请优先参考上游仓库对应目录，或使用 CLI 获得最新结构。常见路径如下（均为技能文件夹，内含 SKILL.md、data 与 scripts）：</p>
-                <div class="table-container">
+                <div class="table-container" tabindex="0" role="region" aria-label="手动安装目录，可横向滚动">
                     <table class="styled-table">
                         <thead>
                             <tr>
-                                <th>AI 助手</th>
-                                <th>需要复制的文件夹</th>
+                                <th scope="col">AI 助手</th>
+                                <th scope="col">需要复制的文件夹</th>
                             </tr>
                         </thead>
                         <tbody>
@@ -414,9 +414,9 @@ import '../styles/global.css';
             </div>
 
             <!-- Prerequisites -->
-            <div class="install-content" id="prereq">
+            <div class="install-content" id="prereq" role="tabpanel" aria-labelledby="tab-prereq" hidden>
                 <div class="prereq-box">
-                    <h4><i class="fas fa-exclamation-triangle" aria-hidden="true"></i> 前置条件</h4>
+                    <h3><i class="fas fa-exclamation-triangle" aria-hidden="true"></i> 前置条件</h3>
                     <p style="color: var(--text-muted);">搜索脚本需要 Python 3.x 环境支持。</p>
                 </div>
                 <div class="code-block" style="margin-top: 1.5rem;">
@@ -431,7 +431,7 @@ import '../styles/global.css';
                             <span>复制</span>
                         </button>
                     </div>
-                    <div class="code-body">
+                    <div class="code-body" tabindex="0" role="region" aria-label="Python 检查与安装命令">
                         <pre id="prereq-code"><span class="comment"># 检查 Python 是否已安装</span>
 <span class="command">python3</span> <span class="flag">--version</span>
 
@@ -461,7 +461,7 @@ import '../styles/global.css';
             <div class="ai-card">
                 <div class="ai-card-header">
                     <div class="ai-card-icon"><i class="fas fa-robot" aria-hidden="true"></i></div>
-                    <h4>Claude Code</h4>
+                    <h3>Claude Code</h3>
                 </div>
                 <p>技能会自动激活。像平时一样自然对话即可：</p>
                 <div class="code-snippet">为我的 SaaS 产品构建一个着陆页</div>
@@ -470,7 +470,7 @@ import '../styles/global.css';
             <div class="ai-card">
                 <div class="ai-card-header">
                     <div class="ai-card-icon"><i class="fas fa-terminal" aria-hidden="true"></i></div>
-                    <h4>自动激活平台</h4>
+                    <h3>自动激活平台</h3>
                 </div>
                 <p>Claude Code、Cursor、Windsurf、Antigravity、Codex CLI、Continue、Gemini CLI、OpenCode、Qoder、CodeBuddy、Droid、KiloCode、Warp、Augment、CodeWhale、ZCode、Kimi Code、Amazon Q、OpenClaw、GitHub Copilot 会在 UI/UX 请求中自动激活：</p>
                 <div class="code-snippet">为金融科技银行 App 设计深色主题界面</div>
@@ -479,7 +479,7 @@ import '../styles/global.css';
             <div class="ai-card">
                 <div class="ai-card-header">
                     <div class="ai-card-icon"><i class="fas fa-compass" aria-hidden="true"></i></div>
-                    <h4>斜杠命令平台</h4>
+                    <h3>斜杠命令平台</h3>
                 </div>
                 <p>Kiro、Roo Code、KiloCode 可用斜杠命令显式调用：</p>
                 <div class="code-snippet">/ui-ux-pro-max 为我的电商应用设计移动端 UI</div>
@@ -488,7 +488,7 @@ import '../styles/global.css';
             <div class="ai-card">
                 <div class="ai-card-header">
                     <div class="ai-card-icon"><i class="fab fa-github" aria-hidden="true"></i></div>
-                    <h4>Trae SOLO 模式</h4>
+                    <h3>Trae SOLO 模式</h3>
                 </div>
                 <p>Trae 用户请先切换到 <code>SOLO</code> 模式，再用自然语言提出 UI/UX 需求。</p>
                 <div class="code-snippet">为我的电商应用制作移动端 UI</div>
@@ -529,27 +529,27 @@ import '../styles/global.css';
         <div class="workflow-steps">
             <div class="workflow-step">
                 <div class="step-number">1</div>
-                <h4>你提问</h4>
+                <h3>你提问</h3>
                 <p>请求任何 UI/UX 任务：构建、设计、创建、实现、审查、修复、改进</p>
             </div>
             <div class="workflow-step">
                 <div class="step-number">2</div>
-                <h4>生成设计系统</h4>
+                <h3>生成设计系统</h3>
                 <p>AI 通过推理引擎生成页面模式、风格、颜色、字体、动效和反模式</p>
             </div>
             <div class="workflow-step">
                 <div class="step-number">3</div>
-                <h4>智能推荐</h4>
+                <h3>智能推荐</h3>
                 <p>根据你的产品类型和需求，找到最匹配的设计系统</p>
             </div>
             <div class="workflow-step">
                 <div class="step-number">4</div>
-                <h4>代码生成</h4>
+                <h3>代码生成</h3>
                 <p>使用正确的颜色、字体、间距和最佳实践实现 UI</p>
             </div>
             <div class="workflow-step">
                 <div class="step-number">5</div>
-                <h4>交付检查</h4>
+                <h3>交付检查</h3>
                 <p>检查点击态、键盘焦点、对比度、动效降级和响应式断点</p>
             </div>
         </div>
@@ -653,13 +653,13 @@ import '../styles/global.css';
             <div class="footer-logo">UI/UX Pro Max</div>
             <p style="color: var(--text-muted); margin-bottom: 1rem;">为 AI 时代打造的卓越设计技能库</p>
             <div class="footer-links">
-                <a href="https://github.com/nextlevelbuilder/ui-ux-pro-max-skill" target="_blank">
+                <a href="https://github.com/nextlevelbuilder/ui-ux-pro-max-skill" target="_blank" rel="noopener noreferrer">
                     <i class="fab fa-github" aria-hidden="true"></i> GitHub
                 </a>
-                <a href="https://github.com/nextlevelbuilder/ui-ux-pro-max-skill/blob/main/README.zh.md" target="_blank">
+                <a href="https://github.com/nextlevelbuilder/ui-ux-pro-max-skill/blob/main/README.zh.md" target="_blank" rel="noopener noreferrer">
                     上游中文文档
                 </a>
-                <a href="https://github.com/nextlevelbuilder/ui-ux-pro-max-skill/blob/main/LICENSE" target="_blank">
+                <a href="https://github.com/nextlevelbuilder/ui-ux-pro-max-skill/blob/main/LICENSE" target="_blank" rel="noopener noreferrer">
                     MIT License
                 </a>
             </div>

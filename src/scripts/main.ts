@@ -1,24 +1,54 @@
-// Tab switching for installation section
-const installTabs = document.querySelectorAll<HTMLButtonElement>('.install-tab');
-const installPanels = document.querySelectorAll<HTMLElement>('.install-content');
+const prefersReducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)');
+const scrollBehavior = (): ScrollBehavior => (prefersReducedMotion.matches ? 'auto' : 'smooth');
 
-installTabs.forEach((tab) => {
-    tab.addEventListener('click', () => {
-        const panelId = tab.dataset.tab;
-        if (!panelId) return;
+// Accessible installation tabs with roving focus and automatic activation.
+const installTabs = Array.from(document.querySelectorAll<HTMLButtonElement>('.install-tab'));
 
-        const panel = document.getElementById(panelId);
-        if (!panel) return;
+function activateTab(tab: HTMLButtonElement, moveFocus = false): void {
+    const panelId = tab.dataset.tab;
+    if (!panelId) return;
 
-        installTabs.forEach((item) => item.classList.remove('active'));
-        installPanels.forEach((item) => item.classList.remove('active'));
+    installTabs.forEach((item) => {
+        const selected = item === tab;
+        const itemPanelId = item.dataset.tab;
+        const panel = itemPanelId ? document.getElementById(itemPanelId) : null;
 
-        tab.classList.add('active');
-        panel.classList.add('active');
+        item.classList.toggle('active', selected);
+        item.setAttribute('aria-selected', String(selected));
+        item.tabIndex = selected ? 0 : -1;
+
+        if (panel) {
+            panel.hidden = !selected;
+            panel.classList.toggle('active', selected);
+        }
+    });
+
+    if (moveFocus) tab.focus();
+}
+
+installTabs.forEach((tab, index) => {
+    tab.addEventListener('click', () => activateTab(tab));
+
+    tab.addEventListener('keydown', (event) => {
+        let nextIndex: number | null = null;
+
+        if (event.key === 'ArrowRight' || event.key === 'ArrowDown') {
+            nextIndex = (index + 1) % installTabs.length;
+        } else if (event.key === 'ArrowLeft' || event.key === 'ArrowUp') {
+            nextIndex = (index - 1 + installTabs.length) % installTabs.length;
+        } else if (event.key === 'Home') {
+            nextIndex = 0;
+        } else if (event.key === 'End') {
+            nextIndex = installTabs.length - 1;
+        }
+
+        if (nextIndex === null) return;
+        event.preventDefault();
+        activateTab(installTabs[nextIndex], true);
     });
 });
 
-// Copy to clipboard with fallback for non-secure contexts
+// Copy to clipboard with fallback for non-secure contexts.
 async function copyText(text: string): Promise<void> {
     if (navigator.clipboard && window.isSecureContext) {
         await navigator.clipboard.writeText(text);
@@ -39,6 +69,7 @@ async function copyText(text: string): Promise<void> {
     }
 }
 
+const copyResetTimers = new WeakMap<HTMLButtonElement, number>();
 const copyButtons = document.querySelectorAll<HTMLButtonElement>('.copy-btn');
 
 copyButtons.forEach((button) => {
@@ -51,6 +82,9 @@ copyButtons.forEach((button) => {
         const label = button.querySelector<HTMLSpanElement>('span');
         if (!codeElement || !icon || !label) return;
 
+        const previousTimer = copyResetTimers.get(button);
+        if (previousTimer) window.clearTimeout(previousTimer);
+
         try {
             await copyText(codeElement.innerText);
             icon.className = 'fas fa-check';
@@ -62,55 +96,78 @@ copyButtons.forEach((button) => {
             button.style.color = '#ef4444';
         }
 
-        window.setTimeout(() => {
+        copyResetTimers.set(button, window.setTimeout(() => {
             icon.className = 'fas fa-copy';
             label.textContent = '复制';
             button.style.color = '';
-        }, 2000);
+            copyResetTimers.delete(button);
+        }, 2000));
     });
 });
 
-// Smooth scroll for navigation links
+// Smooth scroll for in-page navigation.
 document.querySelectorAll<HTMLAnchorElement>('a[href^="#"]').forEach((anchor) => {
     anchor.addEventListener('click', (event) => {
         const href = anchor.getAttribute('href');
         if (!href || href === '#') return;
 
+        const target = document.getElementById(decodeURIComponent(href.slice(1)));
+        if (!target) return;
+
         event.preventDefault();
-        const target = document.querySelector<HTMLElement>(href);
-        if (target) {
-            target.scrollIntoView({ behavior: 'smooth', block: 'start' });
+        if (anchor.classList.contains('skip-link')) {
+            target.focus({ preventScroll: true });
         }
+        target.scrollIntoView({ behavior: scrollBehavior(), block: 'start' });
     });
 });
 
-// Mobile navigation toggle
+// Mobile navigation with scroll lock, Escape, outside click and resize cleanup.
 const navToggle = document.querySelector<HTMLButtonElement>('.nav-toggle');
 const navMenu = document.getElementById('nav-menu');
+const mobileNavQuery = window.matchMedia('(max-width: 960px)');
 
 if (navToggle && navMenu) {
     const navIcon = navToggle.querySelector<HTMLElement>('i');
 
-    const closeMenu = (): void => {
-        navMenu.classList.remove('open');
-        navToggle.setAttribute('aria-expanded', 'false');
-        navToggle.setAttribute('aria-label', '打开导航菜单');
-        if (navIcon) navIcon.className = 'fas fa-bars';
+    const setMenu = (open: boolean, returnFocus = false): void => {
+        navMenu.classList.toggle('open', open);
+        navToggle.setAttribute('aria-expanded', String(open));
+        navToggle.setAttribute('aria-label', open ? '关闭导航菜单' : '打开导航菜单');
+        document.body.classList.toggle('menu-open', open && mobileNavQuery.matches);
+        if (navIcon) navIcon.className = open ? 'fas fa-xmark' : 'fas fa-bars';
+        if (returnFocus) navToggle.focus();
     };
 
     navToggle.addEventListener('click', () => {
-        const open = navMenu.classList.toggle('open');
-        navToggle.setAttribute('aria-expanded', String(open));
-        navToggle.setAttribute('aria-label', open ? '关闭导航菜单' : '打开导航菜单');
-        if (navIcon) navIcon.className = open ? 'fas fa-xmark' : 'fas fa-bars';
+        setMenu(!navMenu.classList.contains('open'));
     });
 
     navMenu.querySelectorAll<HTMLAnchorElement>('a').forEach((link) => {
-        link.addEventListener('click', closeMenu);
+        link.addEventListener('click', () => setMenu(false));
+    });
+
+    document.addEventListener('keydown', (event) => {
+        if (event.key === 'Escape' && navMenu.classList.contains('open')) {
+            setMenu(false, true);
+        }
+    });
+
+    document.addEventListener('click', (event) => {
+        if (!navMenu.classList.contains('open')) return;
+        const target = event.target;
+        if (!(target instanceof Node)) return;
+        if (!navMenu.contains(target) && !navToggle.contains(target)) {
+            setMenu(false);
+        }
+    });
+
+    mobileNavQuery.addEventListener('change', (event) => {
+        if (!event.matches) setMenu(false);
     });
 }
 
-// Scrollspy: highlight the nav link of the section in view
+// Scrollspy: highlight the navigation link for the section in view.
 const spyLinks = Array.from(document.querySelectorAll<HTMLAnchorElement>('.nav-links a[href^="#"]'));
 const spyTargets = spyLinks
     .map((link) => link.getAttribute('href'))
@@ -121,18 +178,21 @@ const spyTargets = spyLinks
 if ('IntersectionObserver' in window && spyTargets.length > 0) {
     const spy = new IntersectionObserver((entries) => {
         entries.forEach((entry) => {
-            if (entry.isIntersecting) {
-                spyLinks.forEach((link) => {
-                    link.classList.toggle('active', link.getAttribute('href') === `#${entry.target.id}`);
-                });
-            }
+            if (!entry.isIntersecting) return;
+
+            spyLinks.forEach((link) => {
+                const active = link.getAttribute('href') === `#${entry.target.id}`;
+                link.classList.toggle('active', active);
+                if (active) link.setAttribute('aria-current', 'location');
+                else link.removeAttribute('aria-current');
+            });
         });
     }, { rootMargin: '-40% 0px -55% 0px' });
 
     spyTargets.forEach((target) => spy.observe(target));
 }
 
-// Back to top button
+// Back to top button.
 const backToTop = document.querySelector<HTMLButtonElement>('#back-to-top');
 
 if (backToTop) {
@@ -141,64 +201,62 @@ if (backToTop) {
     }, { passive: true });
 
     backToTop.addEventListener('click', () => {
-        window.scrollTo({ top: 0, behavior: 'smooth' });
+        window.scrollTo({ top: 0, behavior: scrollBehavior() });
     });
 }
 
-// Navbar scroll effect
+// Navbar scroll effect.
 const navbar = document.getElementById('navbar');
 
 window.addEventListener('scroll', () => {
     if (navbar) {
         navbar.classList.toggle('scrolled', window.scrollY > 50);
     }
-});
+}, { passive: true });
 
-// Intersection Observer for scroll animations
-const observerOptions: IntersectionObserverInit = {
-    threshold: 0.1,
-    rootMargin: '0px 0px -50px 0px'
-};
+// Reveal content only after the animation setup succeeds.
+const revealTargets = Array.from(document.querySelectorAll<HTMLElement>(
+    '.feature-card, .ai-card, .workflow-step, .stack-item, .prompt-item'
+));
 
-const observer = new IntersectionObserver((entries) => {
-    entries.forEach((entry) => {
-        if (entry.isIntersecting) {
-            entry.target.classList.add('animate-in');
-        }
+if (!prefersReducedMotion.matches && 'IntersectionObserver' in window && revealTargets.length > 0) {
+    const staggerGroups: Array<{ selector: string; delay: number }> = [
+        { selector: '.features-grid .feature-card', delay: 0.1 },
+        { selector: '.ai-grid .ai-card', delay: 0.1 },
+        { selector: '.workflow-steps .workflow-step', delay: 0.15 },
+        { selector: '.stack-grid .stack-item', delay: 0.05 },
+    ];
+
+    staggerGroups.forEach(({ selector, delay }) => {
+        document.querySelectorAll<HTMLElement>(selector).forEach((item, index) => {
+            item.style.transitionDelay = `${index * delay}s`;
+        });
     });
-}, observerOptions);
 
-// Observe elements for animation
-document.querySelectorAll<HTMLElement>('.feature-card, .ai-card, .workflow-step, .stack-item, .prompt-item').forEach((element) => {
-    element.style.opacity = '0';
-    element.style.transform = 'translateY(30px)';
-    element.style.transition = 'all 0.6s cubic-bezier(0.4, 0, 0.2, 1)';
-    observer.observe(element);
-});
+    const revealObserver = new IntersectionObserver((entries) => {
+        entries.forEach((entry) => {
+            if (!entry.isIntersecting) return;
 
-// Add animation class styles
-const animationStyle = document.createElement('style');
-animationStyle.textContent = `
-    .animate-in {
-        opacity: 1 !important;
-        transform: translateY(0) !important;
-    }
-`;
-document.head.appendChild(animationStyle);
+            const element = entry.target as HTMLElement;
+            element.classList.add('animate-in');
+            revealObserver.unobserve(element);
 
-// Stagger animation delay for grid items
-document.querySelectorAll<HTMLElement>('.features-grid .feature-card').forEach((card, index) => {
-    card.style.transitionDelay = `${index * 0.1}s`;
-});
+            const cleanupReveal = (event: TransitionEvent): void => {
+                if (event.target !== element || event.propertyName !== 'opacity') return;
+                element.classList.remove('reveal-ready', 'animate-in');
+                element.style.removeProperty('transition-delay');
+                element.removeEventListener('transitionend', cleanupReveal);
+            };
 
-document.querySelectorAll<HTMLElement>('.ai-grid .ai-card').forEach((card, index) => {
-    card.style.transitionDelay = `${index * 0.1}s`;
-});
+            element.addEventListener('transitionend', cleanupReveal);
+        });
+    }, {
+        threshold: 0.1,
+        rootMargin: '0px 0px -50px 0px'
+    });
 
-document.querySelectorAll<HTMLElement>('.workflow-steps .workflow-step').forEach((step, index) => {
-    step.style.transitionDelay = `${index * 0.15}s`;
-});
-
-document.querySelectorAll<HTMLElement>('.stack-grid .stack-item').forEach((item, index) => {
-    item.style.transitionDelay = `${index * 0.05}s`;
-});
+    revealTargets.forEach((element) => {
+        element.classList.add('reveal-ready');
+        revealObserver.observe(element);
+    });
+}
