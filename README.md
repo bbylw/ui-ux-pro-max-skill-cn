@@ -24,7 +24,7 @@
   <a href="https://paypal.me/uiuxpromax"><img src="https://img.shields.io/badge/PayPal-Support%20Development-00457C?style=flat-square&logo=paypal&logoColor=white" alt="PayPal"></a>
 </p>
 
-一款 AI 技能，为跨多种平台与框架构建专业级 UI/UX 提供设计智能。
+一款 AI skill，为跨多种平台与框架构建专业级 UI/UX 提供设计智能。
 
 <p align="center">
   <a href="https://uupm.cc">
@@ -45,7 +45,7 @@
 ---
 
 <p align="center">
-  <span>看看我们的新技能：</span>
+  <span>看看我们的新 skill：</span>
   <br/>
   <a href="https://github.com/viettranx/3dviz-pro-max" target="_blank">
     <picture>
@@ -62,7 +62,7 @@
 </p>
 
 <p align="center">
-  <sub><b>视觉灵感展示，并非基准测试。</b>素材由作者提供，录制于本技能诞生<i>之前</i>；其界面中包含越南语。属历史影像，并非英文演示，也不是对本技能的运行时测试——参见<a href="https://github.com/viettranx/3dviz-pro-max/blob/main/docs/demos/README.md">媒体来源说明</a>。</sub>
+  <sub><b>视觉灵感展示，并非基准测试。</b>素材由作者提供，录制于本 skill 诞生<i>之前</i>；其界面中包含越南语。属历史影像，并非英文演示，也不是对本 skill 的运行时测试——参见<a href="https://github.com/viettranx/3dviz-pro-max/blob/main/docs/demos/README.md">媒体来源说明</a>。</sub>
 </p>
 
 <p align="center">
@@ -305,11 +305,11 @@ uipro init --ai universal --global # 安装到 ~/.agents/skills/
 
 ```bash
 uipro versions              # 列出可用版本
-uipro update                # 从已安装的 CLI 包刷新技能文件
-uipro update --global       # 从已安装的 CLI 包刷新全局技能文件
+uipro update                # 从已安装的 CLI 包刷新 skill 文件
+uipro update --global       # 从已安装的 CLI 包刷新全局 skill 文件
 uipro init --offline        # 兼容性标志；安装随包捆绑的模板
 uipro init --dry-run        # 预览安装动作，不写入文件
-uipro uninstall             # 移除技能（自动检测平台）
+uipro uninstall             # 移除 skill（自动检测平台）
 uipro uninstall --ai claude # 移除指定平台
 uipro uninstall --global    # 移除全局安装
 ```
@@ -324,27 +324,27 @@ uipro uninstall --global    # 移除全局安装
 python3 --version
 ```
 
-如果没有安装，请**你本人**从 [python.org](https://www.python.org/downloads/) 或通过系统包管理器（Homebrew、apt、winget）安装。这些安装步骤面向**人类用户**——使用本技能的 AI 代理绝不应在你的机器上安装软件，它们被要求改为向你提出请求。
+如果没有安装，请**你本人**从 [python.org](https://www.python.org/downloads/) 或通过系统包管理器（Homebrew、apt、winget）安装。这些安装步骤面向**人类用户**——使用本 skill 的 AI 代理绝不应在你的机器上安装软件，它们被要求改为向你提出请求。
 
 ## 使用方式
 
-### 技能模式（自动激活）
+### Skill 模式（自动激活）
 
 **支持：** Claude Code、Cursor、Windsurf、Antigravity、Codex CLI、Continue、Gemini CLI、OpenCode、Qoder、CodeBuddy、Droid (Factory)、KiloCode、Warp、Augment、CodeWhale、ZCode、Kimi Code、Amazon Q Developer、OpenClaw、GitHub Copilot
 
-当你提出 UI/UX 相关请求时，技能会自动激活。像平常一样自然对话即可：
+当你提出 UI/UX 相关请求时，skill 会自动激活。像平常一样自然对话即可：
 
 ```
 为我的 SaaS 产品搭建一个落地页
 ```
 
-> **Trae**：请先切换到 **SOLO** 模式，技能才会对 UI/UX 请求激活。
+> **Trae**：请先切换到 **SOLO** 模式，skill 才会对 UI/UX 请求激活。
 
 ### 工作流模式（斜杠命令）
 
 **支持：** Kiro、Roo Code、KiloCode
 
-使用斜杠命令调用技能：
+使用斜杠命令调用 skill：
 
 ```
 /ui-ux-pro-max 为我的 SaaS 产品搭建一个落地页
@@ -366,10 +366,10 @@ python3 --version
 
 ### 为现有应用换肤
 
-[安装技能](#安装)后，在 AI 助手中打开你的应用，使用类似下面的提示词。工作流模式下请在提示词前加上 `/ui-ux-pro-max`。
+[安装 skill](#安装)后，在 AI 助手中打开你的应用，使用类似下面的提示词。工作流模式下请在提示词前加上 `/ui-ux-pro-max`。
 
 ```text
-使用 ui-ux-pro-max 技能为我现有的 React 应用重新设计主题。
+使用 ui-ux-pro-max skill 为我现有的 React 应用重新设计主题。
 目标风格：极简主义与瑞士风格 (Minimalism & Swiss Style)。
 先检查框架与样式库版本、路由、组件、样式以及现有主题 Token。
 保持现有的组件结构、行为和业务逻辑不变。
@@ -399,7 +399,7 @@ python3 --version
 
 ### 支持的技术栈
 
-本技能为以下技术栈提供专属指南：
+本 skill 为以下技术栈提供专属指南：
 
 | 分类 | 技术栈 |
 |------|--------|
@@ -522,8 +522,8 @@ cd ui-ux-pro-max-skill
 # 2. 理解目录结构
 src/ui-ux-pro-max/           # 唯一事实源（数据、脚本、模板）
 cli/                         # CLI 安装器（从模板生成文件）
-.claude/                     # Claude Code 技能的本地开发/测试
-.factory/                    # Droid (Factory) 技能的本地开发/测试
+.claude/                     # Claude Code skill 的本地开发/测试
+.factory/                    # Droid (Factory) skill 的本地开发/测试
 
 # 3. 在 src/ui-ux-pro-max/ 中修改
 # - data/*.csv              → 数据文件
@@ -648,7 +648,7 @@ uipro uninstall
 
 ### `uipro uninstall` 提示 "No installed AI skill directories detected"
 
-技能安装在与当前执行命令不同的目录中。可以：
+skill 安装在与当前执行命令不同的目录中。可以：
 
 ```bash
 # 方案 A — 回到最初安装它的项目根目录运行
@@ -665,9 +665,9 @@ rm -rf .windsurf/skills/ui-ux-pro-max # Windsurf
 rm -rf .agents/skills/ui-ux-pro-max   # Antigravity / Codex
 ```
 
-### Claude.ai 的“上传技能”对话框提示 "Zip contains too many files (maximum 200)"
+### Claude.ai 的“上传 skill”对话框提示 "Zip contains too many files (maximum 200)"
 
-不要上传完整的 GitHub 仓库 ZIP。它是开发用代码检出，包含源代码、CLI 资源、文档、预览和多个捆绑技能，会超出 Claude 的 200 个文件上传限制。它不是 Claude 技能上传包，本项目目前也不提供单独用于手动上传到 Claude.ai 的 ZIP。
+不要上传完整的 GitHub 仓库 ZIP。它是开发用代码检出，包含源代码、CLI 资源、文档、预览和多个捆绑 skill，会超出 Claude 的 200 个文件上传限制。它不是 Claude skill 上传包，本项目目前也不提供单独用于手动上传到 Claude.ai 的 ZIP。
 
 Claude Code 请通过 Marketplace 安装：
 
@@ -726,6 +726,6 @@ python3 .claude/skills/ui-ux-pro-max/scripts/search.py "SaaS" --domain style --j
 
 ## 兼容的智能体
 
-本技能可与以下工具配合使用：
+本 skill 可与以下工具配合使用：
 - [Claude Code](https://claude.com/product/claude-code)
 - [AdaL](https://sylph.ai/) - 自进化 AI 编码智能体（[文档](https://docs.sylph.ai/) | [GitHub](https://github.com/SylphAI-Inc/adal-cli)）
