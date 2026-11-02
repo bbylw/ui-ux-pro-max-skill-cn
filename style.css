@@ -366,6 +366,7 @@ nav.scrolled {
 /* Stats Bar */
 .stats-bar {
     display: flex;
+    flex-wrap: wrap;
     justify-content: center;
     gap: 4rem;
     padding: 3rem 5%;

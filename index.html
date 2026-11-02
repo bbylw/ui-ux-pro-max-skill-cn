@@ -6,7 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>UI/UX Pro Max | AI 全能设计技能教程</title>
     <meta name="description"
-        content="UI/UX Pro Max 官方中文教程：为 Claude Code, Cursor, Windsurf, Antigravity, Kiro 等 AI 编码助手提供专业级设计智能。包含 67 种 UI 风格、161 种配色方案、57 种字体配对、25 种图表类型、22 个技术栈和 161 条行业推理规则。">
+        content="UI/UX Pro Max 官方中文教程（已同步上游 v2.15.0）：为 Claude Code, Cursor, Windsurf, Antigravity, Kiro, Codex CLI 等 20+ AI 编码助手提供专业级设计智能。包含 79 种可检索 UI 风格、192 套行业配色方案、74 种字体配对、25 种图表类型、22 个技术栈、119 条 UX 准则和 192 条行业推理规则。">
     <meta name="keywords" content="UI UX, AI Design, Claude Code, Cursor, Windsurf, Antigravity, 设计系统, 配色方案">
     <link rel="stylesheet" href="style.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
@@ -29,7 +29,7 @@
                 <span class="logo-text">UI/UX Pro Max</span>
             </a>
             <ul class="nav-links">
-                <li><a href="#whats-new">v2.0</a></li>
+                <li><a href="#whats-new">v2.15</a></li>
                 <li><a href="#features">特性</a></li>
                 <li><a href="#install">安装</a></li>
                 <li><a href="#usage">使用</a></li>
@@ -48,8 +48,8 @@
     <!-- Hero Section -->
     <header class="hero">
         <div class="hero-badge">
-            <i class="fas fa-sparkles"></i>
-            <span>v2.0 重大更新：设计系统生成器已上线</span>
+            <i class="fas fa-wand-magic-sparkles"></i>
+            <span>已同步上游 v2.15.0：79 种可检索 UI 风格 + 192 套行业配色</span>
         </div>
         <h1 class="hero-title">
             <span class="gradient-text">UI/UX Pro Max</span><br>
@@ -57,7 +57,7 @@
         </h1>
         <p class="hero-subtitle">
             通过 AI 推理引擎，为产品类型自动生成完整设计系统。<br>
-            覆盖 161 个行业规则、22 个技术栈与更多 AI 编码平台，让你的 AI 像顶级产品设计团队一样思考和交付。
+            覆盖 192 个行业规则、22 个技术栈与 20+ AI 编码平台，让你的 AI 像顶级产品设计团队一样思考和交付。
         </p>
         <div class="hero-cta">
             <a href="#install" class="btn btn-primary">
@@ -75,15 +75,15 @@
     <!-- Stats Bar -->
     <div class="stats-bar">
         <div class="stat-item">
-            <div class="stat-number">67</div>
+            <div class="stat-number">79</div>
             <div class="stat-label">UI 风格</div>
         </div>
         <div class="stat-item">
-            <div class="stat-number">161</div>
+            <div class="stat-number">192</div>
             <div class="stat-label">配色方案</div>
         </div>
         <div class="stat-item">
-            <div class="stat-number">57</div>
+            <div class="stat-number">74</div>
             <div class="stat-label">字体配对</div>
         </div>
         <div class="stat-item">
@@ -91,7 +91,11 @@
             <div class="stat-label">图表类型</div>
         </div>
         <div class="stat-item">
-            <div class="stat-number">161</div>
+            <div class="stat-number">119</div>
+            <div class="stat-label">UX 准则</div>
+        </div>
+        <div class="stat-item">
+            <div class="stat-number">192</div>
             <div class="stat-label">推理规则</div>
         </div>
     </div>
@@ -101,23 +105,59 @@
     <!-- What's New Section -->
     <section id="whats-new" class="section">
         <div class="section-header">
-            <span class="section-badge">v2.0 新功能</span>
+            <span class="section-badge">旗舰功能</span>
             <h2 class="section-title">智能设计系统生成器</h2>
-            <p class="section-subtitle">旗舰更新：AI 会分析你的项目需求，自动生成包含模式、风格、颜色、字体、动效、反模式和交付检查清单的完整设计系统。</p>
+            <p class="section-subtitle">AI 会分析你的项目需求，自动生成包含模式、风格、颜色、字体、动效、反模式和交付检查清单的完整设计系统。</p>
         </div>
         <div class="design-system-card">
             <div class="design-system-content">
                 <h3>从一句需求到完整设计决策</h3>
                 <p>例如“为美容水疗中心做着陆页”，系统会匹配服务行业规则，推荐 Hero-Centric + Social Proof 页面结构、Soft UI Evolution 风格、柔和粉/鼠尾草绿/金色调色板，以及优雅的 Cormorant Garamond / Montserrat 字体组合。</p>
                 <ul class="check-list">
-                    <li>5 路并行检索：产品类型、UI 风格、配色、页面模式、字体</li>
-                    <li>BM25 排名与条件规则结合，过滤行业反模式</li>
+                    <li>5 路并行检索：192 种产品类型、79 种 UI 风格、192 套配色、34 种页面模式、74 组字体</li>
+                    <li>BM25 排名与 192 条条件推理规则结合，过滤行业反模式</li>
                     <li>输出预交付检查清单：对比度、焦点态、动效降级、响应式尺寸</li>
                 </ul>
             </div>
             <div class="terminal-card">
                 <pre>python3 .claude/skills/ui-ux-pro-max/scripts/search.py \
   "beauty spa wellness" --design-system -p "Serenity Spa"</pre>
+            </div>
+        </div>
+
+        <div style="margin-top: 4rem;">
+            <h3 style="text-align: center; margin-bottom: 1.5rem;">🆕 v2.0 → v2.15 其他亮点</h3>
+            <div class="features-grid">
+                <div class="feature-card">
+                    <div class="feature-icon"><i class="fas fa-font"></i></div>
+                    <h3>1900+ 可检索字体库</h3>
+                    <p>新增 Google Fonts 全量数据库（1934 款字体），支持按名称与授权方式检索，与 74 组精选配对互补。</p>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-icon"><i class="fas fa-icons"></i></div>
+                    <h3>105 个图标 + 17 组动效预设</h3>
+                    <p>精选 Phosphor 图标检索域与 17 个 GSAP 动效预设，可通过 <code>--domain icons</code> / <code>--domain motion</code> 查询。</p>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-icon"><i class="fas fa-cubes"></i></div>
+                    <h3>6 个附加设计技能</h3>
+                    <p>brand、design、design-system、ui-styling、banner-design、slides，覆盖品牌、横幅与幻灯片设计。</p>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-icon"><i class="fas fa-text-height"></i></div>
+                    <h3>韧性文本与紧凑 UI 准则</h3>
+                    <p>标题换行、长词折行、Chip/徽章溢出、被中断的微交互等生产环境常见问题的处理指南。</p>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-icon"><i class="fas fa-paint-roller"></i></div>
+                    <h3>为现有应用换肤</h3>
+                    <p>新增 Retheme 工作流与迁移检查清单：复用现有语义 Token，逐组件替换硬编码样式，不重建主题体系。</p>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-icon"><i class="fas fa-code-branch"></i></div>
+                    <h3>版本感知框架搜索</h3>
+                    <p>React 19、Nuxt UI v4.12 等最新栈指南；显式查询旧版本（如 Svelte 4、Next.js 15）只返回策展的遗留指南。</p>
+                </div>
             </div>
         </div>
     </section>
@@ -128,25 +168,24 @@
             <span class="section-badge">核心特性</span>
             <h2 class="section-title">什么是 UI/UX Pro Max?</h2>
             <p class="section-subtitle">
-                一个专为 AI 编码助手打造的设计智能系统。v2.0 新增设计系统生成器，可根据产品类型并行检索风格、配色、排版、落地页模式和反模式。
+                一个专为 AI 编码助手打造的设计智能系统。核心是设计系统生成器：根据产品类型并行检索风格、配色、排版、落地页模式和反模式。
             </p>
         </div>
         <div class="features-grid">
             <div class="feature-card">
                 <div class="feature-icon"><i class="fas fa-palette"></i></div>
-                <h3>67 种 UI 风格</h3>
-                <p>从玻璃拟态 (Glassmorphism) 到粘土拟态 (Claymorphism)，从极简主义 (Minimalism) 到野兽派 (Brutalism)，以及新拟态
-                    (Neumorphism)、Bento Grid、深色模式等。</p>
+                <h3>79 种可检索 UI 风格</h3>
+                <p>50 个常用风格持续推荐，涵盖玻璃拟态、粘土拟态、极简主义、野兽派、Bento Grid、AI-Native UI，以及 Fluent 2、Shopify Polaris、Adobe Spectrum 等官方设计系统。</p>
             </div>
             <div class="feature-card">
                 <div class="feature-icon"><i class="fas fa-swatchbook"></i></div>
-                <h3>161 种配色方案</h3>
-                <p>与 161 种产品类型一一对齐的行业专属配色：SaaS、金融科技、医疗健康、电商、服务业、创意和新兴科技。</p>
+                <h3>192 套配色方案</h3>
+                <p>与 192 种产品类型一一对齐的行业专属配色：SaaS、金融科技、医疗健康、电商、服务业、创意和新兴科技。</p>
             </div>
             <div class="feature-card">
                 <div class="feature-icon"><i class="fas fa-font"></i></div>
-                <h3>57 种字体配对</h3>
-                <p>精心策划的 Google Fonts 排版组合，自动处理字体导入和排版层次结构。</p>
+                <h3>74 种字体配对</h3>
+                <p>精心策划的 Google Fonts 排版组合，自动处理字体导入和排版层次结构，并可检索 1900+ 款字体全量库。</p>
             </div>
             <div class="feature-card">
                 <div class="feature-icon"><i class="fas fa-chart-pie"></i></div>
@@ -155,13 +194,23 @@
             </div>
             <div class="feature-card">
                 <div class="feature-icon"><i class="fas fa-layer-group"></i></div>
-                <h3>22 种技术栈支持</h3>
-                <p>React、Next.js、Astro、Vue、Nuxt、Angular、Laravel、Three.js、Jetpack Compose、桌面平台等主流框架专属指南。</p>
+                <h3>22 个技术栈</h3>
+                <p>React、Next.js、Nuxt UI、Svelte、shadcn/ui、Angular、Laravel、Three.js、SwiftUI、Jetpack Compose、Flutter，以及 WPF、WinUI 3、Avalonia 等桌面框架专属指南。</p>
             </div>
             <div class="feature-card">
-                <div class="feature-icon"><i class="fas fa-shield-check"></i></div>
-                <h3>161 条行业推理规则</h3>
+                <div class="feature-icon"><i class="fas fa-list-check"></i></div>
+                <h3>119 条 UX 准则</h3>
+                <p>最佳实践、反模式与无障碍规则，新增韧性文本布局、紧凑标签溢出和可取消交互等生产级准则。</p>
+            </div>
+            <div class="feature-card">
+                <div class="feature-icon"><i class="fas fa-brain"></i></div>
+                <h3>192 条行业推理规则</h3>
                 <p>为科技、金融、医疗、电商、服务、创意、生活方式和新兴科技提供产品类型专属设计决策。</p>
+            </div>
+            <div class="feature-card">
+                <div class="feature-icon"><i class="fas fa-shapes"></i></div>
+                <h3>105 个图标 + 17 组动效</h3>
+                <p>精选 Phosphor 图标库与 GSAP 动效预设独立成域，让图标语义和动效节奏都有据可依。</p>
             </div>
         </div>
     </section>
@@ -208,16 +257,52 @@
 <span class="command">uipro init</span> <span class="flag">--ai</span> <span class="value">claude</span>      <span class="comment"># Claude Code</span>
 <span class="command">uipro init</span> <span class="flag">--ai</span> <span class="value">cursor</span>      <span class="comment"># Cursor</span>
 <span class="command">uipro init</span> <span class="flag">--ai</span> <span class="value">windsurf</span>    <span class="comment"># Windsurf</span>
-<span class="command">uipro init</span> <span class="flag">--ai</span> <span class="value">antigravity</span> <span class="comment"># Antigravity (.agent + .shared)</span>
+<span class="command">uipro init</span> <span class="flag">--ai</span> <span class="value">antigravity</span> <span class="comment"># Antigravity</span>
 <span class="command">uipro init</span> <span class="flag">--ai</span> <span class="value">copilot</span>     <span class="comment"># GitHub Copilot</span>
 <span class="command">uipro init</span> <span class="flag">--ai</span> <span class="value">kiro</span>        <span class="comment"># Kiro</span>
 <span class="command">uipro init</span> <span class="flag">--ai</span> <span class="value">codex</span>       <span class="comment"># Codex CLI</span>
 <span class="command">uipro init</span> <span class="flag">--ai</span> <span class="value">qoder</span>       <span class="comment"># Qoder</span>
+<span class="command">uipro init</span> <span class="flag">--ai</span> <span class="value">roocode</span>     <span class="comment"># Roo Code</span>
 <span class="command">uipro init</span> <span class="flag">--ai</span> <span class="value">gemini</span>      <span class="comment"># Gemini CLI</span>
+<span class="command">uipro init</span> <span class="flag">--ai</span> <span class="value">trae</span>        <span class="comment"># Trae</span>
 <span class="command">uipro init</span> <span class="flag">--ai</span> <span class="value">opencode</span>    <span class="comment"># OpenCode</span>
 <span class="command">uipro init</span> <span class="flag">--ai</span> <span class="value">continue</span>    <span class="comment"># Continue</span>
+<span class="command">uipro init</span> <span class="flag">--ai</span> <span class="value">codebuddy</span>   <span class="comment"># CodeBuddy</span>
+<span class="command">uipro init</span> <span class="flag">--ai</span> <span class="value">droid</span>       <span class="comment"># Droid (Factory)</span>
+<span class="command">uipro init</span> <span class="flag">--ai</span> <span class="value">kilocode</span>    <span class="comment"># KiloCode</span>
 <span class="command">uipro init</span> <span class="flag">--ai</span> <span class="value">warp</span>        <span class="comment"># Warp</span>
+<span class="command">uipro init</span> <span class="flag">--ai</span> <span class="value">augment</span>     <span class="comment"># Augment</span>
+<span class="command">uipro init</span> <span class="flag">--ai</span> <span class="value">codewhale</span>   <span class="comment"># CodeWhale</span>
+<span class="command">uipro init</span> <span class="flag">--ai</span> <span class="value">zcode</span>       <span class="comment"># ZCode</span>
+<span class="command">uipro init</span> <span class="flag">--ai</span> <span class="value">kimi</span>        <span class="comment"># Kimi Code</span>
+<span class="command">uipro init</span> <span class="flag">--ai</span> <span class="value">amazonq</span>     <span class="comment"># Amazon Q Developer</span>
+<span class="command">uipro init</span> <span class="flag">--ai</span> <span class="value">openclaw</span>    <span class="comment"># OpenClaw</span>
+<span class="command">uipro init</span> <span class="flag">--ai</span> <span class="value">autoclaw</span>    <span class="comment"># AutoClaw</span>
+<span class="command">uipro init</span> <span class="flag">--ai</span> <span class="value">universal</span>   <span class="comment"># 通用 Agent 标准 (.agents/skills/)</span>
 <span class="command">uipro init</span> <span class="flag">--ai</span> <span class="value">all</span>         <span class="comment"># 所有 AI 助手</span></pre>
+                    </div>
+                </div>
+
+                <h4 style="margin: 2rem 0 1rem; color: var(--text-main);">全局安装（所有项目可用）</h4>
+                <div class="code-block">
+                    <div class="code-header">
+                        <div class="code-dots">
+                            <span class="code-dot red"></span>
+                            <span class="code-dot yellow"></span>
+                            <span class="code-dot green"></span>
+                        </div>
+                        <button class="copy-btn" data-code="cli-global">
+                            <i class="fas fa-copy"></i>
+                            <span>复制</span>
+                        </button>
+                    </div>
+                    <div class="code-body">
+                        <pre
+                            id="cli-global"><span class="command">uipro init</span> <span class="flag">--ai</span> <span class="value">claude</span> <span class="flag">--global</span>      <span class="comment"># 安装到 ~/.claude/skills/</span>
+<span class="command">uipro init</span> <span class="flag">--ai</span> <span class="value">cursor</span> <span class="flag">--global</span>      <span class="comment"># 安装到 ~/.cursor/skills/</span>
+<span class="command">uipro init</span> <span class="flag">--ai</span> <span class="value">zcode</span> <span class="flag">--global</span>       <span class="comment"># 安装到 ~/.zcode/skills/</span>
+<span class="command">uipro init</span> <span class="flag">--ai</span> <span class="value">kimi</span> <span class="flag">--global</span>        <span class="comment"># 安装到 ~/.kimi-code/skills/</span>
+<span class="command">uipro init</span> <span class="flag">--ai</span> <span class="value">universal</span> <span class="flag">--global</span>   <span class="comment"># 安装到 ~/.agents/skills/</span></pre>
                     </div>
                 </div>
 
@@ -238,8 +323,11 @@
                         <pre
                             id="cli-other"><span class="command">uipro versions</span>              <span class="comment"># 列出可用版本</span>
 <span class="command">uipro update</span>                <span class="comment"># 从已安装 CLI 包刷新技能文件</span>
-<span class="command">uipro init</span> <span class="flag">--offline</span>       <span class="comment"># 使用随包模板离线安装</span>
+<span class="command">uipro update</span> <span class="flag">--global</span>       <span class="comment"># 刷新全局安装的技能文件</span>
+<span class="command">uipro init</span> <span class="flag">--offline</span>        <span class="comment"># 使用随包模板离线安装</span>
+<span class="command">uipro init</span> <span class="flag">--dry-run</span>        <span class="comment"># 预览安装动作，不写入文件</span>
 <span class="command">uipro uninstall</span>             <span class="comment"># 卸载自动检测到的平台</span>
+<span class="command">uipro uninstall</span> <span class="flag">--ai</span> <span class="value">claude</span> <span class="comment"># 卸载指定平台</span>
 <span class="command">uipro uninstall</span> <span class="flag">--global</span>    <span class="comment"># 移除全局安装</span></pre>
                     </div>
                 </div>
@@ -256,7 +344,7 @@
 
             <!-- Manual Installation -->
             <div class="install-content" id="manual">
-                <p style="color: var(--text-muted); margin-bottom: 1.5rem;">v2.0 起平台文件由 CLI 模板动态生成；如果你更喜欢手动安装，请优先参考上游仓库对应目录，或使用 CLI 获得最新结构。常见路径如下：</p>
+                <p style="color: var(--text-muted); margin-bottom: 1.5rem;">v2.0 起平台文件由 CLI 模板动态生成；如果你更喜欢手动安装，请优先参考上游仓库对应目录，或使用 CLI 获得最新结构。常见路径如下（均为技能文件夹，内含 SKILL.md、data 与 scripts）：</p>
                 <div class="table-container">
                     <table class="styled-table">
                         <thead>
@@ -272,30 +360,23 @@
                             </tr>
                             <tr>
                                 <td><strong>Cursor</strong></td>
-                                <td><code>.cursor/commands/ui-ux-pro-max.md</code> + <code>.shared/ui-ux-pro-max/</code>
-                                </td>
+                                <td><code>.cursor/skills/ui-ux-pro-max/</code></td>
                             </tr>
                             <tr>
                                 <td><strong>Windsurf</strong></td>
-                                <td><code>.windsurf/workflows/ui-ux-pro-max.md</code> +
-                                    <code>.shared/ui-ux-pro-max/</code>
-                                </td>
+                                <td><code>.windsurf/skills/ui-ux-pro-max/</code></td>
                             </tr>
                             <tr>
-                                <td><strong>Antigravity</strong></td>
-                                <td><code>.agent/workflows/ui-ux-pro-max.md</code> + <code>.shared/ui-ux-pro-max/</code>
-                                </td>
+                                <td><strong>Antigravity / 通用 Agent</strong></td>
+                                <td><code>.agents/skills/ui-ux-pro-max/</code></td>
                             </tr>
                             <tr>
                                 <td><strong>GitHub Copilot</strong></td>
-                                <td><code>.github/prompts/ui-ux-pro-max.prompt.md</code> +
-                                    <code>.shared/ui-ux-pro-max/</code>
-                                </td>
+                                <td><code>.github/skills/ui-ux-pro-max/</code></td>
                             </tr>
                             <tr>
                                 <td><strong>Kiro</strong></td>
-                                <td><code>.kiro/steering/ui-ux-pro-max.md</code> + <code>.shared/ui-ux-pro-max/</code>
-                                </td>
+                                <td><code>.kiro/steering/ui-ux-pro-max/SKILL.md</code></td>
                             </tr>
                         </tbody>
                     </table>
@@ -361,7 +442,7 @@
                     <div class="ai-card-icon"><i class="fas fa-terminal"></i></div>
                     <h4>自动激活平台</h4>
                 </div>
-                <p>Claude Code、Cursor、Windsurf、Antigravity、Codex CLI、Continue、Gemini CLI、OpenCode、Qoder、CodeBuddy、Droid、KiloCode、Warp、Augment 会在 UI/UX 请求中自动激活：</p>
+                <p>Claude Code、Cursor、Windsurf、Antigravity、Codex CLI、Continue、Gemini CLI、OpenCode、Qoder、CodeBuddy、Droid、KiloCode、Warp、Augment、CodeWhale、ZCode、Kimi Code、Amazon Q、OpenClaw、GitHub Copilot 会在 UI/UX 请求中自动激活：</p>
                 <div class="code-snippet">为金融科技银行 App 设计深色主题界面</div>
             </div>
 
@@ -370,7 +451,7 @@
                     <div class="ai-card-icon"><i class="fas fa-compass"></i></div>
                     <h4>斜杠命令平台</h4>
                 </div>
-                <p>Kiro、GitHub Copilot、Roo Code、KiloCode 可用斜杠命令显式调用：</p>
+                <p>Kiro、Roo Code、KiloCode 可用斜杠命令显式调用：</p>
                 <div class="code-snippet">/ui-ux-pro-max 为我的电商应用设计移动端 UI</div>
             </div>
 
@@ -413,7 +494,7 @@
         <div class="section-header">
             <span class="section-badge">工作原理</span>
             <h2 class="section-title">它是如何运作的?</h2>
-            <p class="section-subtitle">从提问到交付检查，v2.0 现在是五步</p>
+            <p class="section-subtitle">从提问到交付检查，v2.15 的五步流程</p>
         </div>
         <div class="workflow-steps">
             <div class="workflow-step">
@@ -465,16 +546,44 @@
                 <span>Next.js</span>
             </div>
             <div class="stack-item">
+                <i class="fas fa-shapes"></i>
+                <span>shadcn/ui</span>
+            </div>
+            <div class="stack-item">
                 <i class="fab fa-vuejs"></i>
                 <span>Vue</span>
+            </div>
+            <div class="stack-item">
+                <i class="fas fa-mountain"></i>
+                <span>Nuxt.js / Nuxt UI</span>
             </div>
             <div class="stack-item">
                 <i class="fas fa-fire"></i>
                 <span>Svelte</span>
             </div>
             <div class="stack-item">
+                <i class="fas fa-rocket"></i>
+                <span>Astro</span>
+            </div>
+            <div class="stack-item">
+                <i class="fas fa-cube"></i>
+                <span>Three.js</span>
+            </div>
+            <div class="stack-item">
+                <i class="fab fa-angular"></i>
+                <span>Angular</span>
+            </div>
+            <div class="stack-item">
+                <i class="fab fa-laravel"></i>
+                <span>Laravel</span>
+            </div>
+            <div class="stack-item">
                 <i class="fab fa-swift"></i>
                 <span>SwiftUI</span>
+            </div>
+            <div class="stack-item">
+                <i class="fab fa-android"></i>
+                <span>Jetpack Compose</span>
             </div>
             <div class="stack-item">
                 <i class="fab fa-react"></i>
@@ -484,12 +593,22 @@
                 <i class="fas fa-feather"></i>
                 <span>Flutter</span>
             </div>
-            <div class="stack-item"><i class="fas fa-rocket"></i><span>Astro</span></div>
-            <div class="stack-item"><i class="fab fa-angular"></i><span>Angular</span></div>
-            <div class="stack-item"><i class="fab fa-laravel"></i><span>Laravel</span></div>
-            <div class="stack-item"><i class="fas fa-cube"></i><span>Three.js</span></div>
-            <div class="stack-item"><i class="fab fa-java"></i><span>JavaFX</span></div>
-            <div class="stack-item"><i class="fab fa-windows"></i><span>WPF / WinUI / UWP</span></div>
+            <div class="stack-item">
+                <i class="fab fa-java"></i>
+                <span>JavaFX</span>
+            </div>
+            <div class="stack-item">
+                <i class="fab fa-windows"></i>
+                <span>WPF / WinUI 3 / UWP</span>
+            </div>
+            <div class="stack-item">
+                <i class="fas fa-desktop"></i>
+                <span>Avalonia</span>
+            </div>
+            <div class="stack-item">
+                <i class="fas fa-clone"></i>
+                <span>Uno Platform</span>
+            </div>
         </div>
         <p style="text-align: center; color: var(--text-muted); margin-top: 2rem;">
             只需在提示词中提及你偏好的技术栈，或默认使用 HTML + Tailwind。
@@ -504,6 +623,9 @@
             <div class="footer-links">
                 <a href="https://github.com/nextlevelbuilder/ui-ux-pro-max-skill" target="_blank">
                     <i class="fab fa-github"></i> GitHub
+                </a>
+                <a href="https://github.com/nextlevelbuilder/ui-ux-pro-max-skill/blob/main/README.zh.md" target="_blank">
+                    上游中文文档
                 </a>
                 <a href="https://github.com/nextlevelbuilder/ui-ux-pro-max-skill/blob/main/LICENSE" target="_blank">
                     MIT License
