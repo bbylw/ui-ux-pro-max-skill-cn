@@ -25,9 +25,6 @@
 
 一个为跨多平台和框架构建专业 UI/UX 提供设计智能的 AI 技能。
 
-> [!NOTE]
-> 本仓库是 [nextlevelbuilder/ui-ux-pro-max-skill](https://github.com/nextlevelbuilder/ui-ux-pro-max-skill) 的**非官方中文镜像**，同时维护一个[中文教程网站](https://ui.cod.ndjp.net)。英文原版请见上游仓库；本文件基于上游官方中文翻译（README.zh.md）补齐滞后内容后同步，见文末[关于本仓库](#-关于本仓库)。
-
 <p align="center">
   <a href="https://uupm.cc">
     <img src="https://github.com/nextlevelbuilder/ui-ux-pro-max-skill/raw/main/screenshots/website.png" alt="UI UX Pro Max" width="800">
@@ -702,24 +699,3 @@ python3 .claude/skills/ui-ux-pro-max/scripts/search.py "SaaS" --domain style --j
 本技能可与以下工具配合使用：
 - [Claude Code](https://claude.com/product/claude-code)
 - [AdaL](https://sylph.ai/) - 自进化的 AI 编码智能体（[文档](https://docs.sylph.ai/) | [GitHub](https://github.com/SylphAI-Inc/adal-cli)）
-
-## 🌐 关于本仓库
-
-本仓库（`bbylw/ui-ux-pro-max-skill-cn`）不是上游的完整 fork，包含两部分内容：
-
-1. **中文镜像文档**：即本文件，基于上游官方中文翻译（[README.zh.md](https://github.com/nextlevelbuilder/ui-ux-pro-max-skill/blob/main/README.zh.md)）同步，并补齐其相对英文版滞后或缺失的内容。数据以上游 `skill.json` 与 `src/ui-ux-pro-max/data/catalog-summary.json` 为准。
-2. **中文教程网站**：发布于 GitHub Pages（[ui.cod.ndjp.net](https://ui.cod.ndjp.net)）的单页站点，面向中文开发者介绍安装与使用方法。
-
-仓库结构：
-
-```text
-ui-ux-pro-max-skill-cn/
-├── index.html      # 中文教程主页面
-├── style.css       # 站点样式
-├── script.js       # 站点交互脚本
-├── README.md       # 上游中文镜像 + 本仓库说明（本文件）
-├── CNAME           # GitHub Pages 自定义域名
-└── LICENSE         # MIT 许可证
-```
-
-同步方式：跟进上游新版本时，先核对上游 `skill.json` 的版本号与 `catalog-summary.json` 的数据计数，再对照上游英文 `README.md` 更新本文件与站点文案；官网站点的改动需要与本文件保持一致。
