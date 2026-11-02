@@ -117,6 +117,12 @@ document.querySelectorAll<HTMLAnchorElement>('a[href^="#"]').forEach((anchor) =>
         event.preventDefault();
         if (anchor.classList.contains('skip-link')) {
             target.focus({ preventScroll: true });
+        } else if (anchor.closest('.nav-links')) {
+            const heading = target.querySelector<HTMLElement>('h1, h2');
+            if (heading) {
+                heading.tabIndex = -1;
+                heading.focus({ preventScroll: true });
+            }
         }
         target.scrollIntoView({ behavior: scrollBehavior(), block: 'start' });
     });
@@ -140,7 +146,15 @@ if (navToggle && navMenu) {
     };
 
     navToggle.addEventListener('click', () => {
-        setMenu(!navMenu.classList.contains('open'));
+        const opening = !navMenu.classList.contains('open');
+        setMenu(opening);
+
+        if (opening) {
+            window.requestAnimationFrame(() => {
+                if (!navMenu.classList.contains('open')) return;
+                navMenu.querySelector<HTMLAnchorElement>('a')?.focus({ preventScroll: true });
+            });
+        }
     });
 
     navMenu.querySelectorAll<HTMLAnchorElement>('a').forEach((link) => {
@@ -178,14 +192,21 @@ const spyTargets = spyLinks
 if ('IntersectionObserver' in window && spyTargets.length > 0) {
     const spy = new IntersectionObserver((entries) => {
         entries.forEach((entry) => {
-            if (!entry.isIntersecting) return;
+            if (entry.isIntersecting) {
+                spyLinks.forEach((link) => {
+                    const active = link.getAttribute('href') === `#${entry.target.id}`;
+                    link.classList.toggle('active', active);
+                    if (active) link.setAttribute('aria-current', 'location');
+                    else link.removeAttribute('aria-current');
+                });
+                return;
+            }
 
-            spyLinks.forEach((link) => {
-                const active = link.getAttribute('href') === `#${entry.target.id}`;
-                link.classList.toggle('active', active);
-                if (active) link.setAttribute('aria-current', 'location');
-                else link.removeAttribute('aria-current');
-            });
+            const link = spyLinks.find((item) => item.getAttribute('href') === `#${entry.target.id}`);
+            if (link?.classList.contains('active')) {
+                link.classList.remove('active');
+                link.removeAttribute('aria-current');
+            }
         });
     }, { rootMargin: '-40% 0px -55% 0px' });
 
@@ -260,3 +281,12 @@ if (!prefersReducedMotion.matches && 'IntersectionObserver' in window && revealT
         revealObserver.observe(element);
     });
 }
+
+prefersReducedMotion.addEventListener('change', (event) => {
+    if (!event.matches) return;
+
+    revealTargets.forEach((element) => {
+        element.classList.remove('reveal-ready', 'animate-in');
+        element.style.removeProperty('transition-delay');
+    });
+});

@@ -97,7 +97,7 @@ body.menu-open {
     background: linear-gradient(135deg, var(--accent) 0%, #06b6d4 100%);
     top: 50%;
     left: 50%;
-    transform: translate(-50%, -50%);
+    translate: -50% -50%;
     animation-delay: -5s;
     opacity: 0.2;
 }
@@ -433,6 +433,39 @@ nav.scrolled {
     font-size: 1.1rem;
     max-width: 600px;
     margin: 0 auto;
+}
+
+.content-block {
+    margin-top: 4rem;
+}
+
+.subsection-title {
+    margin-bottom: 1.5rem;
+    text-align: center;
+}
+
+.install-note {
+    margin-bottom: 1.5rem;
+    color: var(--text-muted);
+}
+
+.code-block-spaced {
+    margin-top: 1.5rem;
+}
+
+.prereq-note {
+    color: var(--text-muted);
+}
+
+.stack-note {
+    margin-top: 2rem;
+    color: var(--text-muted);
+    text-align: center;
+}
+
+.footer-subtitle {
+    margin-bottom: 1rem;
+    color: var(--text-muted);
 }
 
 /* Features Grid */

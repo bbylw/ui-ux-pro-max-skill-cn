@@ -155,8 +155,8 @@ import '../styles/global.css';
             </div>
         </div>
 
-        <div style="margin-top: 4rem;">
-            <h3 style="text-align: center; margin-bottom: 1.5rem;">🆕 v2.0 → v2.15 其他亮点</h3>
+        <div class="content-block">
+            <h3 class="subsection-title">🆕 v2.0 → v2.15 其他亮点</h3>
             <div class="features-grid">
                 <div class="feature-card">
                     <div class="feature-icon"><i class="fas fa-font" aria-hidden="true"></i></div>
@@ -270,7 +270,7 @@ import '../styles/global.css';
                             <span class="code-dot yellow"></span>
                             <span class="code-dot green"></span>
                         </div>
-                        <button class="copy-btn" data-code="cli-main" aria-label="复制代码">
+                        <button class="copy-btn" data-code="cli-main" aria-label="复制完整安装命令">
                             <i class="fas fa-copy" aria-hidden="true"></i>
                             <span>复制</span>
                         </button>
@@ -321,7 +321,7 @@ import '../styles/global.css';
                             <span class="code-dot yellow"></span>
                             <span class="code-dot green"></span>
                         </div>
-                        <button class="copy-btn" data-code="cli-global" aria-label="复制代码">
+                        <button class="copy-btn" data-code="cli-global" aria-label="复制全局安装命令">
                             <i class="fas fa-copy" aria-hidden="true"></i>
                             <span>复制</span>
                         </button>
@@ -344,7 +344,7 @@ import '../styles/global.css';
                             <span class="code-dot yellow"></span>
                             <span class="code-dot green"></span>
                         </div>
-                        <button class="copy-btn" data-code="cli-other" aria-label="复制代码">
+                        <button class="copy-btn" data-code="cli-other" aria-label="复制其他 CLI 命令">
                             <i class="fas fa-copy" aria-hidden="true"></i>
                             <span>复制</span>
                         </button>
@@ -364,9 +364,9 @@ import '../styles/global.css';
             </div>
 
             <div class="install-content" id="marketplace" role="tabpanel" aria-labelledby="tab-marketplace" hidden>
-                <p style="color: var(--text-muted); margin-bottom: 1.5rem;">Claude Code 可直接通过 Marketplace 安装：</p>
+                <p class="install-note">Claude Code 可直接通过 Marketplace 安装：</p>
                 <div class="code-block">
-                    <div class="code-header"><div class="code-dots"><span class="code-dot red"></span><span class="code-dot yellow"></span><span class="code-dot green"></span></div><button class="copy-btn" data-code="marketplace-code" aria-label="复制代码"><i class="fas fa-copy" aria-hidden="true"></i><span>复制</span></button></div>
+                    <div class="code-header"><div class="code-dots"><span class="code-dot red"></span><span class="code-dot yellow"></span><span class="code-dot green"></span></div><button class="copy-btn" data-code="marketplace-code" aria-label="复制 Marketplace 安装命令"><i class="fas fa-copy" aria-hidden="true"></i><span>复制</span></button></div>
                     <div class="code-body" tabindex="0" role="region" aria-label="Marketplace 安装命令"><pre id="marketplace-code"><span class="command">/plugin marketplace add</span> <span class="value">nextlevelbuilder/ui-ux-pro-max-skill</span>
 <span class="command">/plugin install</span> <span class="value">ui-ux-pro-max@ui-ux-pro-max-skill</span></pre></div>
                 </div>
@@ -374,7 +374,7 @@ import '../styles/global.css';
 
             <!-- Manual Installation -->
             <div class="install-content" id="manual" role="tabpanel" aria-labelledby="tab-manual" hidden>
-                <p style="color: var(--text-muted); margin-bottom: 1.5rem;">v2.0 起平台文件由 CLI 模板动态生成；如果你更喜欢手动安装，请优先参考上游仓库对应目录，或使用 CLI 获得最新结构。常见路径如下（均为技能文件夹，内含 SKILL.md、data 与 scripts）：</p>
+                <p class="install-note">v2.0 起平台文件由 CLI 模板动态生成；如果你更喜欢手动安装，请优先参考上游仓库对应目录，或使用 CLI 获得最新结构。常见路径如下（均为技能文件夹，内含 SKILL.md、data 与 scripts）：</p>
                 <div class="table-container" tabindex="0" role="region" aria-label="手动安装目录，可横向滚动">
                     <table class="styled-table">
                         <thead>
@@ -417,16 +417,16 @@ import '../styles/global.css';
             <div class="install-content" id="prereq" role="tabpanel" aria-labelledby="tab-prereq" hidden>
                 <div class="prereq-box">
                     <h3><i class="fas fa-exclamation-triangle" aria-hidden="true"></i> 前置条件</h3>
-                    <p style="color: var(--text-muted);">搜索脚本需要 Python 3.x 环境支持。</p>
+                    <p class="prereq-note">搜索脚本需要 Python 3.x 环境支持。</p>
                 </div>
-                <div class="code-block" style="margin-top: 1.5rem;">
+                <div class="code-block code-block-spaced">
                     <div class="code-header">
                         <div class="code-dots">
                             <span class="code-dot red"></span>
                             <span class="code-dot yellow"></span>
                             <span class="code-dot green"></span>
                         </div>
-                        <button class="copy-btn" data-code="prereq-code" aria-label="复制代码">
+                        <button class="copy-btn" data-code="prereq-code" aria-label="复制 Python 检查与安装命令">
                             <i class="fas fa-copy" aria-hidden="true"></i>
                             <span>复制</span>
                         </button>
@@ -439,7 +439,7 @@ import '../styles/global.css';
 <span class="command">brew install</span> <span class="value">python3</span>
 
 <span class="comment"># Ubuntu/Debian</span>
-<span class="command">sudo apt update</span> && <span class="command">sudo apt install</span> <span class="value">python3</span>
+<span class="command">sudo apt update</span> &amp;&amp; <span class="command">sudo apt install</span> <span class="value">python3</span>
 
 <span class="comment"># Windows</span>
 <span class="command">winget install</span> <span class="value">Python.Python.3.12</span></pre>
@@ -496,8 +496,8 @@ import '../styles/global.css';
         </div>
 
         <!-- Example Prompts -->
-        <div style="margin-top: 4rem;">
-            <h3 style="text-align: center; margin-bottom: 1.5rem;">💡 示例提示词</h3>
+        <div class="content-block">
+            <h3 class="subsection-title">💡 示例提示词</h3>
             <div class="prompts-grid">
                 <div class="prompt-item">
                     <span class="prompt-icon"><i class="fas fa-globe" aria-hidden="true"></i></span>
@@ -640,7 +640,7 @@ import '../styles/global.css';
                 <span>Uno Platform</span>
             </div>
         </div>
-        <p style="text-align: center; color: var(--text-muted); margin-top: 2rem;">
+        <p class="stack-note">
             只需在提示词中提及你偏好的技术栈，或默认使用 HTML + Tailwind。
         </p>
     </section>
@@ -651,7 +651,7 @@ import '../styles/global.css';
     <footer>
         <div class="footer-content">
             <div class="footer-logo">UI/UX Pro Max</div>
-            <p style="color: var(--text-muted); margin-bottom: 1rem;">为 AI 时代打造的卓越设计技能库</p>
+            <p class="footer-subtitle">为 AI 时代打造的卓越设计技能库</p>
             <div class="footer-links">
                 <a href="https://github.com/nextlevelbuilder/ui-ux-pro-max-skill" target="_blank" rel="noopener noreferrer">
                     <i class="fab fa-github" aria-hidden="true"></i> GitHub
