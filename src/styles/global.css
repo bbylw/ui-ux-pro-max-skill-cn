@@ -6,21 +6,18 @@
     --accent: #22d3ee;
     --success: #10b981;
     --warning: #f59e0b;
-    --bg-dark: #0f172a;
     --bg-darker: #020617;
     --bg-card: rgba(15, 23, 42, 0.6);
     --text-main: #f8fafc;
     --text-muted: #94a3b8;
-    --text-dim: #64748b;
+    --text-dim: #7c8aa5;
     --glass: rgba(255, 255, 255, 0.03);
     --glass-hover: rgba(255, 255, 255, 0.06);
     --glass-border: rgba(255, 255, 255, 0.08);
     --glass-border-hover: rgba(255, 255, 255, 0.15);
     --card-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.5);
-    --glow-primary: 0 0 60px rgba(99, 102, 241, 0.3);
-    --glow-secondary: 0 0 60px rgba(236, 72, 153, 0.2);
-    --transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
-    --transition-slow: all 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+    --ease-out: cubic-bezier(0.4, 0, 0.2, 1);
+    --transition: color 0.3s var(--ease-out), background-color 0.3s var(--ease-out), border-color 0.3s var(--ease-out), transform 0.3s var(--ease-out), box-shadow 0.3s var(--ease-out), opacity 0.3s var(--ease-out), width 0.3s var(--ease-out), visibility 0.3s var(--ease-out);
 }
 
 * {
@@ -30,15 +27,19 @@
 }
 
 html {
+    color-scheme: dark;
     scroll-behavior: smooth;
+    scroll-padding-top: 6rem;
+    scrollbar-width: thin;
+    scrollbar-color: rgba(99, 102, 241, 0.4) var(--bg-darker);
 }
 
 body {
-    font-family: 'Inter', -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+    font-family: 'Inter', -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, 'PingFang SC', 'Hiragino Sans GB', 'Microsoft YaHei', sans-serif;
     background: var(--bg-darker);
     color: var(--text-main);
     line-height: 1.7;
-    overflow-x: hidden;
+    overflow-x: clip;
 }
 
 /* Animated Background */
@@ -124,6 +125,7 @@ nav {
     z-index: 1000;
     padding: 1rem 5%;
     background: rgba(2, 6, 23, 0.7);
+    -webkit-backdrop-filter: blur(20px);
     backdrop-filter: blur(20px);
     border-bottom: 1px solid var(--glass-border);
     transition: var(--transition);
@@ -210,6 +212,7 @@ nav.scrolled {
 }
 
 .github-btn {
+    position: relative;
     display: flex;
     align-items: center;
     gap: 0.5rem;
@@ -233,6 +236,7 @@ nav.scrolled {
 /* Hero Section */
 .hero {
     min-height: 100vh;
+    min-height: 100svh;
     display: flex;
     flex-direction: column;
     justify-content: center;
@@ -341,26 +345,6 @@ nav.scrolled {
     transform: translateY(-3px);
 }
 
-.hero-image-container {
-    position: relative;
-    width: 100%;
-    max-width: 1100px;
-    margin-top: 2rem;
-}
-
-.hero-image {
-    width: 100%;
-    border-radius: 20px;
-    border: 1px solid var(--glass-border);
-    box-shadow: var(--card-shadow), var(--glow-primary);
-    transform: perspective(2000px) rotateX(5deg);
-    transition: var(--transition-slow);
-}
-
-.hero-image:hover {
-    transform: perspective(2000px) rotateX(0deg) scale(1.02);
-}
-
 /* Stats Bar */
 .stats-bar {
     display: flex;
@@ -438,7 +422,7 @@ nav.scrolled {
 /* Features Grid */
 .features-grid {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+    grid-template-columns: repeat(auto-fit, minmax(min(100%, 320px), 1fr));
     gap: 1.5rem;
 }
 
@@ -619,6 +603,7 @@ nav.scrolled {
 .code-body {
     padding: 1.25rem 1.5rem;
     overflow-x: auto;
+    overscroll-behavior-inline: contain;
 }
 
 .code-body pre {
@@ -650,12 +635,14 @@ nav.scrolled {
     background: var(--bg-card);
     border: 1px solid var(--glass-border);
     border-radius: 16px;
-    overflow: hidden;
+    overflow-x: auto;
+    overscroll-behavior-inline: contain;
     margin-top: 2rem;
 }
 
 .styled-table {
     width: 100%;
+    min-width: 560px;
     border-collapse: collapse;
 }
 
@@ -697,7 +684,7 @@ nav.scrolled {
 /* AI Cards Grid */
 .ai-grid {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    grid-template-columns: repeat(auto-fit, minmax(min(100%, 280px), 1fr));
     gap: 1.5rem;
     margin-top: 3rem;
 }
@@ -758,7 +745,7 @@ nav.scrolled {
 /* How It Works */
 .workflow-steps {
     display: grid;
-    grid-template-columns: repeat(4, 1fr);
+    grid-template-columns: repeat(5, minmax(0, 1fr));
     gap: 2rem;
     margin-top: 3rem;
 }
@@ -807,7 +794,7 @@ nav.scrolled {
 /* Tech Stack Section */
 .stack-grid {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+    grid-template-columns: repeat(auto-fit, minmax(min(100%, 150px), 1fr));
     gap: 1rem;
     margin-top: 2rem;
 }
@@ -861,7 +848,7 @@ nav.scrolled {
 /* Example Prompts */
 .prompts-grid {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    grid-template-columns: repeat(auto-fit, minmax(min(100%, 280px), 1fr));
     gap: 1rem;
     margin-top: 2rem;
 }
@@ -953,10 +940,6 @@ footer {
         padding: 1rem 4%;
     }
 
-    .nav-links {
-        display: none;
-    }
-
     .hero {
         padding: 7rem 4% 4rem;
     }
@@ -972,8 +955,25 @@ footer {
     }
 
     .stats-bar {
-        flex-direction: column;
-        gap: 2rem;
+        display: grid;
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+        gap: 0;
+        padding: 2rem 4%;
+    }
+
+    .stat-item {
+        padding: 1rem 0.75rem;
+    }
+
+    .install-tabs {
+        display: grid;
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+    }
+
+    .install-tab {
+        min-height: 52px;
+        padding: 0.75rem 0.5rem;
+        flex: none;
     }
 
     .workflow-steps {
@@ -1063,12 +1063,6 @@ footer {
 }
 
 /* 滚动条 */
-html {
-    scrollbar-width: thin;
-    scrollbar-color: rgba(99, 102, 241, 0.4) var(--bg-darker);
-    scroll-padding-top: 5rem;
-}
-
 ::-webkit-scrollbar {
     width: 10px;
     height: 10px;
@@ -1092,13 +1086,6 @@ html {
 :focus-visible {
     outline: 2px solid var(--primary-light);
     outline-offset: 3px;
-    border-radius: 4px;
-}
-
-.hero,
-.stats-bar,
-.section {
-    scroll-margin-top: 4.5rem;
 }
 
 /* 跳转到主要内容 */
@@ -1132,8 +1119,8 @@ html {
 /* 移动端导航开关 */
 .nav-toggle {
     display: none;
-    width: 42px;
-    height: 42px;
+    width: 44px;
+    height: 44px;
     align-items: center;
     justify-content: center;
     background: var(--glass);
@@ -1186,7 +1173,7 @@ html {
 }
 
 /* 移动端导航面板 */
-@media (max-width: 768px) {
+@media (max-width: 960px) {
     .nav-toggle {
         display: flex;
     }
@@ -1199,7 +1186,11 @@ html {
         right: 0;
         flex-direction: column;
         gap: 0;
+        max-height: calc(100dvh - 6rem);
+        overflow-y: auto;
+        overscroll-behavior: contain;
         background: rgba(2, 6, 23, 0.97);
+        -webkit-backdrop-filter: blur(20px);
         backdrop-filter: blur(20px);
         border-bottom: 1px solid var(--glass-border);
         padding: 0.4rem 4% 0.9rem;
@@ -1246,12 +1237,44 @@ html {
         border-radius: 10px;
     }
 
+    .stat-number {
+        font-size: 2rem;
+    }
+
+    .stat-label {
+        font-size: 0.85rem;
+    }
+
     .github-btn {
-        padding: 0.6rem 0.75rem;
+        width: 44px;
+        height: 44px;
+        justify-content: center;
+        padding: 0;
     }
 
     .github-btn span {
-        display: none;
+        position: absolute;
+        width: 1px;
+        height: 1px;
+        padding: 0;
+        margin: -1px;
+        overflow: hidden;
+        clip: rect(0 0 0 0);
+        white-space: nowrap;
+        border: 0;
+    }
+}
+
+/* 触屏设备不保留悬停位移 */
+@media (hover: none) {
+    .github-btn:hover,
+    .btn-primary:hover,
+    .btn-secondary:hover,
+    .feature-card:hover,
+    .ai-card:hover,
+    .stack-item:hover,
+    .prompt-item:hover {
+        transform: none;
     }
 }
 
